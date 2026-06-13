@@ -1,0 +1,6 @@
+{
+  "name": "Palmgate Gardeners",
+  "description": "Organic garden narrative, residential landscape maintenance, and specialty garden services across Zimbabwe. Featuring a botanical portfolio gallery and direct WhatsApp consultation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
