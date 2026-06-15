@@ -164,7 +164,7 @@ export default function ServicesView({ onOpenConsultation }: ServicesViewProps) 
               <div className="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs">
                 <span className="text-slate-400 font-medium">Available across Zimbabwe</span>
                 <a 
-                  href={`https://wa.me/263782824022?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20inquire%20about%20your%20${encodeURIComponent(srv.title)}%20services.`}
+                  href={`https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20inquire%20about%20your%20${encodeURIComponent(srv.title)}%20services.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-emerald-800 font-semibold flex items-center gap-1 hover:underline cursor-pointer"
@@ -402,7 +402,7 @@ export default function ServicesView({ onOpenConsultation }: ServicesViewProps) 
             </p>
           </div>
           <a
-            href="https://wa.me/263782824022?text=Hi%20Palmgate%20Gardeners%2C%20I%27d%20like%20to%20book%20the%20Gutter%20Clearing%20special%20for%20my%20home."
+            href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%27d%20like%20to%20book%20the%20Gutter%20Clearing%20special%20for%20my%20home."
             target="_blank"
             rel="noopener noreferrer"
             className="w-full md:w-auto px-6 py-3 bg-white hover:bg-slate-100 text-neutral-900 font-bold rounded-xl text-sm whitespace-nowrap cursor-pointer shadow text-center inline-block"

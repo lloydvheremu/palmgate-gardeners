@@ -291,7 +291,6 @@ export default function ContactView() {
                 <div>
                   <h4 className="text-white font-bold text-xs uppercase tracking-wider text-emerald-300">WhatsApp &amp; Calls:</h4>
                   <div className="text-base text-white font-semibold pt-1 tracking-wide">
-                    +263 782 824 022 <br />
                     +263 785 366 349
                   </div>
                 </div>

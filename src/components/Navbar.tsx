@@ -56,15 +56,15 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
         {/* PHONE / ACCENT CTA */}
         <div className="hidden sm:flex items-center gap-4">
           <a 
-            href="tel:+263782824022" 
+            href="tel:+263785366349" 
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 transition-all"
             title="Call Palmgate Gardeners Zimbabwe"
           >
             <span className="material-symbols-outlined text-[14px]">phone</span>
-            <span className="text-xs font-bold font-mono tracking-wide">+263 782 824 022</span>
+            <span className="text-xs font-bold font-mono tracking-wide">+263 785 366 349</span>
           </a>
           <a
-            href="https://wa.me/263782824022?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20book%20a%20garden%20visit."
+            href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20book%20a%20garden%20visit."
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-[#1e3f20] hover:bg-emerald-950 text-white rounded-xl text-xs font-semibold hover:scale-[1.02] active:scale-95 transition-all shadow-md cursor-pointer flex items-center gap-1.5"
@@ -77,7 +77,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
         {/* MOBILE MENU TOGGLE */}
         <div className="flex lg:hidden items-center gap-2">
           <a 
-            href="tel:+263782824022" 
+            href="tel:+263785366349" 
             className="p-2 bg-amber-50 rounded-xl text-amber-900 border border-amber-200 flex items-center justify-center shrink-0"
             title="Call Support"
           >
@@ -115,7 +115,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
           </div>
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
             <a
-              href="https://wa.me/263782824022?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20book%20a%20free%20site%20inspection%20visit."
+              href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20book%20a%20free%20site%20inspection%20visit."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}

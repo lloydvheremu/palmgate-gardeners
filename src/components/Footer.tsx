@@ -84,7 +84,6 @@ export default function Footer({ onNavigate, onOpenConsultation }: FooterProps) 
           </p>
           <div className="space-y-1 bg-slate-900 border border-slate-800 p-4 rounded-xl">
             <div className="text-[11px] font-bold text-emerald-400 uppercase tracking-widest block font-mono">WhatsApp Center:</div>
-            <a href="tel:+263782824022" className="text-white text-sm font-bold block hover:underline tracking-wide">+263 782 824 022</a>
             <a href="tel:+263785366349" className="text-white text-sm font-bold block hover:underline tracking-wide">+263 785 366 349</a>
           </div>
         </div>

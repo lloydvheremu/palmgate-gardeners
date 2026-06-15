@@ -40,6 +40,58 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
     }
   ];
 
+  const capabilities = [
+    {
+      icon: "landscape",
+      title: "Landscaping & Architectural Design",
+      desc: "Bespoke yard planning, flagstone walkways, block border framing, custom stone features, and hand-selected ornamental flower beds designed for Zimbabwe's soils.",
+      tag: "Arbor Design",
+      whatsapp: "Hi Palmgate, I want to talk about custom garden landscaping and flagstone walkway designs."
+    },
+    {
+      icon: "grass",
+      title: "Premium Turfing & Lawn Rehabilitation",
+      desc: "Supplying and rolling high-density instant lawn (Kikuyu, Paspalum, Couch format), deep weed extraction, biological soil top-feeding, and spring revitalization treatments.",
+      tag: "Organic Focus",
+      whatsapp: "Hi Palmgate, I need a quote for instant lawn turfing or lawn rehabilitation."
+    },
+    {
+      icon: "content_cut",
+      title: "Formal Hedge Sculpting & Shrub Pruning",
+      desc: "Surgical, laser-straight geometric box hedge trimming, ornamental shrub pruning, perimeter branch clearing, and deadwood thinning under local certified guidelines.",
+      tag: "Arbor Precision",
+      whatsapp: "Hi Palmgate, I saw your geometric hedge sculpting. I would like an estimate to trim my perimeter hedges."
+    },
+    {
+      icon: "agriculture",
+      title: "Compaction Relief & Soil Aerating",
+      desc: "Using professional tines to aerate suffocated lawns, infusing nutrient-dense compost blankets, and priming soil beds for optimal seed germination.",
+      tag: "Soil Health",
+      whatsapp: "Hi Palmgate, I would like to schedule a lawn aeration and organic composting treatment."
+    },
+    {
+      icon: "solar_power",
+      title: "Photovoltaic Solar Panel Dust Washing",
+      desc: "Restoring panel energy output. We gently clear dry season dust, grease, and soot using soft micro-fiber telescopic washes and safe de-mineralized water.",
+      tag: "Energy Wash",
+      whatsapp: "Hi Palmgate, I would like to schedule a professional wash for my rooftop solar panels."
+    },
+    {
+      icon: "water_drop",
+      title: "Smart Drip Irrigation & Water-Wise Loops",
+      desc: "Perfecting custom water loops, pop-up spray nozzle layouts, weather-compensated automated timers, and low-waste drip line configurations.",
+      tag: "Smart Tech",
+      whatsapp: "Hi Palmgate, I'd like a quote for a custom drip irrigation loop and automated watering timer."
+    },
+    {
+      icon: "cleaning_services",
+      title: "Gutter Clear-Out & Water Harvesting Prep",
+      desc: "Flushing out baked-on organic mud, dried acacia twigs, nest residues, and general roofing grit from rainwater catchment systems ahead of seasonal downpours.",
+      tag: "Dry-Season Prep",
+      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
+    }
+  ];
+
   return (
     <div className="space-y-24 pb-16 animate-fade-in" id="home-view">
       {/* Hero Section */}
@@ -68,10 +120,45 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
             Eco-friendly, certified garden care to elevate your residential or commercial property across <strong className="text-white font-medium">Zimbabwe</strong>. Rooted in passion, grown with surgical precision. 
           </p>
 
+          {/* Services in Brief */}
+          <div className="pt-2 pb-2">
+            <div className="text-emerald-300/80 text-xs font-mono uppercase tracking-widest mb-3 select-none">Our Specialties in Brief</div>
+            <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">landscape</span>
+                Landscaping & Design
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">grass</span>
+                Lawn Turfing & Rehab
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">content_cut</span>
+                Hedge & Pruning
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">agriculture</span>
+                Aeration & Composting
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">solar_power</span>
+                Solar Panel Wash
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">water_drop</span>
+                Drip Irrigation
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
+                <span className="material-symbols-outlined text-[15px] text-amber-300">cleaning_services</span>
+                Gutter Care
+              </span>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
               id="hero-whatsapp-btn"
-              href="https://wa.me/263782824022?text=Hello%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20chat%20about%20my%20garden."
+              href="https://wa.me/263785366349?text=Hello%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20chat%20about%20my%20garden."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer text-center"
@@ -107,6 +194,91 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
               <div className="text-amber-400 text-3xl font-bold font-serif">24/7</div>
               <div className="text-xs text-emerald-200/60 uppercase tracking-widest">Support Response</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Capabilities Section */}
+      <section id="homepage-capabilities" className="max-w-7xl mx-auto px-6 space-y-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4">
+          <span className="text-emerald-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 block w-fit mx-auto">
+            What We Do
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight font-serif">
+            Our Full Range of Service Capabilities
+          </h2>
+          <div className="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
+          <p className="text-slate-600 text-sm leading-relaxed pt-2">
+            No guess-work. Palmgate Gardeners provides standardized, professional landscaping, soil science, and specialized outdoor property care across Harare, Mabvazuva, and surrounding regions.
+          </p>
+        </div>
+
+        {/* Capabilities Custom Bento Grid design */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {capabilities.map((cap, idx) => (
+            <div 
+              key={idx} 
+              className={`bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:border-emerald-700/40 hover:shadow-lg transition-all duration-300 relative group ${
+                idx === 0 ? "md:col-span-2 xl:col-span-2" : ""
+              }`}
+            >
+              {/* Subtle accent hover indicator */}
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-600 to-amber-500 rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="w-12 h-12 bg-emerald-50 text-emerald-800 rounded-2xl flex items-center justify-center group-hover:bg-emerald-800 group-hover:text-emerald-50 transition-colors duration-300">
+                    <span className="material-symbols-outlined text-[26px]">{cap.icon}</span>
+                  </div>
+                  <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-100 rounded-lg">
+                    {cap.tag}
+                  </span>
+                </div>
+                
+                <h3 className="text-lg font-bold text-slate-900 font-serif leading-snug">
+                  {cap.title}
+                </h3>
+                <p className="text-slate-500 text-xs leading-relaxed font-sans">
+                  {cap.desc}
+                </p>
+              </div>
+
+              <div className="pt-5 mt-5 border-t border-slate-100/80 flex items-center justify-between">
+                <span className="text-[10px] text-slate-400 font-mono tracking-tight flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                  Active capability
+                </span>
+                <a 
+                  href={`https://wa.me/263785366349?text=${encodeURIComponent(cap.whatsapp)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 bg-[#25D366]/10 hover:bg-[#25D366] text-[#122615] hover:text-white font-bold rounded-xl text-xs transition-colors flex items-center gap-1 cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-[13px]">chat</span>
+                  Enquire
+                </a>
+              </div>
+            </div>
+          ))}
+
+          {/* Dynamic "Need a custom formulation?" card to round up the grid neatly */}
+          <div className="bg-[#122615] text-emerald-50 rounded-3xl p-6 flex flex-col justify-between border border-emerald-950 shadow-xl relative overflow-hidden xl:col-span-1">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-400/5 rounded-full blur-2xl"></div>
+            <div className="space-y-4 relative z-10">
+              <div className="w-10 h-10 bg-amber-400 text-[#122615] rounded-xl flex items-center justify-center font-bold">
+                <span className="material-symbols-outlined text-[20px]">psychiatry</span>
+              </div>
+              <h3 className="text-sm font-bold font-serif text-white">Custom Property Needs?</h3>
+              <p className="text-[10px] leading-relaxed text-emerald-200/80 font-sans">
+                Whether you have an extensive commercial park, vertical wall structures requiring precision irrigation loops, or specific soil issues, let our chief designer inspect your property completely free of charge.
+              </p>
+            </div>
+            <button 
+              onClick={onOpenConsultation}
+              className="mt-6 w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-[#122615] hover:scale-[1.01] transition-all font-bold text-xs rounded-xl cursor-pointer shadow-md text-center"
+            >
+              Consult Chief Designer
+            </button>
           </div>
         </div>
       </section>
@@ -310,7 +482,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
         </p>
         <div className="pt-2">
           <a
-            href="https://wa.me/263782824022?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20get%20a%20free%20inspection%20for%20my%20garden."
+            href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20get%20a%20free%20inspection%20for%20my%20garden."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-[#122615] font-semibold rounded-xl text-sm transition-all duration-300 shadow-md transform hover:scale-[1.02] cursor-pointer text-center"
