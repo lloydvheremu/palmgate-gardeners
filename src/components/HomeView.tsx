@@ -1,5 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ActiveTab } from '../types';
+import { motion, AnimatePresence } from 'motion/react';
+
+// Import newly generated high-detail identity-concealed operational images for background slides
+// @ts-ignore
+import palmgatePruning from '../assets/images/palmgate_pruning_1781442698455.jpg';
+// @ts-ignore
+import palmgateMowing from '../assets/images/palmgate_mowing_1781442715386.jpg';
+// @ts-ignore
+import palmgateWatering from '../assets/images/palmgate_watering_1781442732705.jpg';
+// @ts-ignore
+import palmgateSoilPrep from '../assets/images/palmgate_soil_prep_1781442748315.jpg';
+// @ts-ignore
+import sweeping1 from '../assets/images/sweeping1.jpeg';
+// @ts-ignore
+import sweeping2 from '../assets/images/sweeping2.jpeg';
+// @ts-ignore
+import palmgateLighting from '../assets/images/palmgate_lighting_1781602228945.jpg';
+// @ts-ignore
+import palmgateGutter from '../assets/images/palmgate_gutter_1781602247173.jpg';
 
 interface HomeViewProps {
   onNavigate: (tab: ActiveTab) => void;
@@ -7,6 +26,128 @@ interface HomeViewProps {
 }
 
 export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  // Swipe detection coordinates
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const SLIDES = [
+    {
+      id: "landscaping",
+      title: "Landscaping & Garden Design",
+      desc: "Bespoke yard planning, layout blueprints, curved flagstone walkways, and hand-selected ornamental flower beds designed for Zimbabwe's specific soils. We craft cohesive garden layouts from ground up.",
+      image: palmgateSoilPrep,
+      whatsapp: "Hi Palmgate, I saw your Landscaping & Garden Design showcase and would like to talk about custom garden landscaping and flagstone walkway designs.",
+      tag: "Arbor Design",
+      highlights: [
+        "Symmetrical flagstone & border formatting",
+        "Expert computer-aided ground planning",
+        "Bespoke floral palette selections",
+        "Residential & commercial properties"
+      ]
+    },
+    {
+      id: "lawn",
+      title: "Lawn Maintenance & Turfing",
+      desc: "Laying rich, vibrant Kikuyu, Paspalum, or Couch grass rolls. Our horticulturists manage deep sub-surface aeration to relieve soil compaction, apply nutrient top-feedings, and maintain premium lawn textures.",
+      image: palmgateMowing,
+      whatsapp: "Hi Palmgate, I noticed your Lawn Maintenance & Turfing slide and want to enquire about instant lawn turfing or lawn rehabilitation.",
+      tag: "Turf Science",
+      highlights: [
+        "Certified instant lawn supply & rolling",
+        "Deep core aeration for compact red-clays",
+        "Scheduled maintenance with low-noise gear",
+        "Complete weed extraction & organic feeding"
+      ]
+    },
+    {
+      id: "pruning",
+      title: "Tree Pruning & Hedge Shaping",
+      desc: "Surgical, laser-straight geometric hedge sculpting and artistic shrub trimming. We thin dense crowns, remove hazardous deadwood, and manicure compound fences for maximum light.",
+      image: palmgatePruning,
+      whatsapp: "Hi Palmgate, I saw your geometric hedge sculpting. I would like an estimate to trim my perimeter hedges.",
+      tag: "Sculpting Precision",
+      highlights: [
+        "Laser-straight geometric perimeter hedges",
+        "Deadwood removal for optimal solar/light gain",
+        "Ornamental topiary and garden sculpting",
+        "Thorough organic branch clearing"
+      ]
+    },
+    {
+      id: "cleaning",
+      title: "Garden Cleaning & Waste Removal",
+      desc: "Complete deep property sweeps. We dig out pavement joint weeds, rake dry autumn thatch layers, clear seasonal leaves, and process all organic waste directly into nutrient compost.",
+      image: sweeping1,
+      whatsapp: "Hi Palmgate, I want a quote for seasonal garden cleaning, leaf sweep, and pavement joint detail.",
+      tag: "Seasonal Refresh",
+      highlights: [
+        "Meticulous pavement joint detailed sweeps",
+        "Dry turf thatch raking & clean sweeps",
+        "Full organic waste hauling & composing",
+        "Reliable scheduled periodic compound sweeps"
+      ]
+    },
+    {
+      id: "irrigation",
+      title: "Smart Irrigation Systems",
+      desc: "Custom water-wise micro-drip networks, pops-up sprinkler grids, and smart solar-compatible timers. We program water distribution loops that minimize municipal loss while maximizing grass depth.",
+      image: palmgateWatering,
+      whatsapp: "Hi Palmgate, I'd like a quote for a custom drip irrigation loop and automated watering timer.",
+      tag: "Irrigation Engineering",
+      highlights: [
+        "Custom, low-leakage drip lines",
+        "Smart multi-zone automated schedulers",
+        "Accurate water pressure spray tuning",
+        "System audits to minimize municipal waste"
+      ]
+    },
+    {
+      id: "lighting",
+      title: "Outdoor Lighting Systems",
+      desc: "Illuminate your garden pathing with low-voltage warm brass LED stake spotlights, crown accents, and focus fixtures that combine nighttime security with serene visual warmth.",
+      image: palmgateLighting,
+      whatsapp: "Hi Palmgate, I saw your landscape lighting options and want to talk about adding low-voltage LED lights to our garden.",
+      tag: "Illumination Art",
+      highlights: [
+        "Warm low-voltage energy-safe LED fixtures",
+        "Custom tree crown and path stakes highlighting",
+        "Automated twilight and sensor integration",
+        "Bespoke structural highlighting"
+      ]
+    },
+    {
+      id: "restoration",
+      title: "Hardscaping & Yard Restoration",
+      desc: "Reclaiming compacted clays and unkempt grounds. We structure high-density stone borders, level sloped yards, and install gravel containment areas to control heavy rainfall erosion.",
+      image: sweeping2,
+      whatsapp: "Hi Palmgate, my yard is heavily neglected and needs a full-scale hardscape restoration and design treatment.",
+      tag: "Horticulture Rehab",
+      highlights: [
+        "Thorough weed-purged gravel interfaces",
+        "Erosion-proof rain drainage planning",
+        "Durable stone joint bordering layouts",
+        "Complete property garden rebuilds"
+      ]
+    },
+    {
+      id: "gutter",
+      title: "Gutter Cleaning & Roof Care",
+      desc: "Safely clearing autumn acacia pods, dry twigs, nest residues, and baked silt from your roof gutter slopes to prepare your home for clean rainwater harvesting catcher runs.",
+      image: palmgateGutter,
+      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special.",
+      tag: "Property Defense",
+      highlights: [
+        "High-reach safety gear & ladder setups",
+        "Deep water flushing of gutter and runs",
+        "Rainwater harvesting prep support",
+        "Preventive building foundation safety checks"
+      ]
+    }
+  ];
+
   const values = [
     {
       icon: "psychiatry", // Sprout/Leaf associated icon
@@ -40,246 +181,175 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
     }
   ];
 
-  const capabilities = [
-    {
-      icon: "landscape",
-      title: "Landscaping & Architectural Design",
-      desc: "Bespoke yard planning, flagstone walkways, block border framing, custom stone features, and hand-selected ornamental flower beds designed for Zimbabwe's soils.",
-      tag: "Arbor Design",
-      whatsapp: "Hi Palmgate, I want to talk about custom garden landscaping and flagstone walkway designs."
-    },
-    {
-      icon: "grass",
-      title: "Premium Turfing & Lawn Rehabilitation",
-      desc: "Supplying and rolling high-density instant lawn (Kikuyu, Paspalum, Couch format), deep weed extraction, biological soil top-feeding, and spring revitalization treatments.",
-      tag: "Organic Focus",
-      whatsapp: "Hi Palmgate, I need a quote for instant lawn turfing or lawn rehabilitation."
-    },
-    {
-      icon: "content_cut",
-      title: "Formal Hedge Sculpting & Shrub Pruning",
-      desc: "Surgical, laser-straight geometric box hedge trimming, ornamental shrub pruning, perimeter branch clearing, and deadwood thinning under local certified guidelines.",
-      tag: "Arbor Precision",
-      whatsapp: "Hi Palmgate, I saw your geometric hedge sculpting. I would like an estimate to trim my perimeter hedges."
-    },
-    {
-      icon: "agriculture",
-      title: "Compaction Relief & Soil Aerating",
-      desc: "Using professional tines to aerate suffocated lawns, infusing nutrient-dense compost blankets, and priming soil beds for optimal seed germination.",
-      tag: "Soil Health",
-      whatsapp: "Hi Palmgate, I would like to schedule a lawn aeration and organic composting treatment."
-    },
-    {
-      icon: "solar_power",
-      title: "Photovoltaic Solar Panel Dust Washing",
-      desc: "Restoring panel energy output. We gently clear dry season dust, grease, and soot using soft micro-fiber telescopic washes and safe de-mineralized water.",
-      tag: "Energy Wash",
-      whatsapp: "Hi Palmgate, I would like to schedule a professional wash for my rooftop solar panels."
-    },
-    {
-      icon: "water_drop",
-      title: "Smart Drip Irrigation & Water-Wise Loops",
-      desc: "Perfecting custom water loops, pop-up spray nozzle layouts, weather-compensated automated timers, and low-waste drip line configurations.",
-      tag: "Smart Tech",
-      whatsapp: "Hi Palmgate, I'd like a quote for a custom drip irrigation loop and automated watering timer."
-    },
-    {
-      icon: "cleaning_services",
-      title: "Gutter Clear-Out & Water Harvesting Prep",
-      desc: "Flushing out baked-on organic mud, dried acacia twigs, nest residues, and general roofing grit from rainwater catchment systems ahead of seasonal downpours.",
-      tag: "Dry-Season Prep",
-      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000); // Auto-advance every 4 seconds as requested
+    return () => clearInterval(interval);
+  }, [isPlaying, currentIndex]);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrev();
     }
-  ];
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  const currentSlide = SLIDES[currentIndex];
 
   return (
-    <div className="space-y-24 pb-16 animate-fade-in" id="home-view">
-      {/* Hero Section */}
-      <section id="hero" className="relative min-h-[85vh] flex items-center justify-center overflow-hidden rounded-3xl mx-4 my-6 bg-gradient-to-br from-[#122615] via-[#1E3F20] to-[#122615] text-white py-16 px-6 md:px-12 shadow-2xl">
-        {/* Abstract organic background blobs */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -translate-x-12 -translate-y-12"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl translate-x-12 translate-y-12"></div>
-        
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+    <div className="space-y-20 pb-16 animate-fade-in" id="home-view">
+      {/* Full-Screen Rotating Service Showcase Hero Section */}
+      <section 
+        id="hero-slideshow" 
+        className="relative h-[85vh] sm:h-[80vh] md:h-[88vh] lg:h-[90vh] flex items-center overflow-hidden rounded-3xl mx-4 my-6 bg-slate-950 shadow-2xl group/slideshow"
+        onMouseEnter={() => setIsPlaying(false)}
+        onMouseLeave={() => setIsPlaying(true)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Dynamic Background Image Layers with gentle crossfade */}
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1.01 }}
+            exit={{ opacity: 0, scale: 1.00 }}
+            transition={{ duration: 1.0, ease: "easeInOut" }}
+            className="absolute inset-0 bg-cover bg-center pointer-events-none select-none"
+            style={{ backgroundImage: `url(${currentSlide.image})` }}
+          />
+        </AnimatePresence>
 
-        <div className="relative z-10 max-w-4xl text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 text-sm font-medium tracking-wide shadow-inner">
-            <span className="material-symbols-outlined text-[18px] animate-pulse">spa</span>
-            Residential & Commercial Horticultural Masters
-          </div>
+        {/* Subtle dark overlay for absolute text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40 pointer-events-none z-10" />
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] max-w-3xl mx-auto">
-            Professional Landscaping & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-emerald-300 to-amber-200">
-              Garden Maintenance
-            </span>
-          </h1>
+        {/* Abstract organic background visual grids & blur highlights */}
+        <div className="absolute top-10 left-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none z-10"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff04_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-10" />
 
-          <p className="text-emerald-100/85 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-            Eco-friendly, certified garden care to elevate your residential or commercial property across <strong className="text-white font-medium">Zimbabwe</strong>. Rooted in passion, grown with surgical precision. 
-          </p>
-
-          {/* Services in Brief */}
-          <div className="pt-2 pb-2">
-            <div className="text-emerald-300/80 text-xs font-mono uppercase tracking-widest mb-3 select-none">Our Specialties in Brief</div>
-            <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">landscape</span>
-                Landscaping & Design
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">grass</span>
-                Lawn Turfing & Rehab
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">content_cut</span>
-                Hedge & Pruning
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">agriculture</span>
-                Aeration & Composting
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">solar_power</span>
-                Solar Panel Wash
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">water_drop</span>
-                Drip Irrigation
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-emerald-100 text-xs font-medium backdrop-blur-sm hover:bg-white/15 transition-colors cursor-default">
-                <span className="material-symbols-outlined text-[15px] text-amber-300">cleaning_services</span>
-                Gutter Care
-              </span>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <a
-              id="hero-whatsapp-btn"
-              href="https://wa.me/263785366349?text=Hello%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20chat%20about%20my%20garden."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer text-center"
+        {/* Content Overlay - Constrained layout for static height & stability */}
+        <div className="relative z-20 w-full max-w-4xl h-full flex flex-col justify-end md:justify-center p-6 sm:p-12 md:p-16 lg:p-24">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
+              className="space-y-4 sm:space-y-6 text-left w-full h-auto"
             >
-              <span className="material-symbols-outlined">chat</span>
-              Let&apos;s Chat on WhatsApp
-            </a>
-            <button
-              id="hero-portfolio-btn"
-              onClick={() => onNavigate('gallery')}
-              className="w-full sm:w-auto px-8 py-4 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-200 font-semibold rounded-xl border border-emerald-500/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span className="material-symbols-outlined">collections</span>
-              View Our Work
-            </button>
-          </div>
-
-          {/* Core highlights banner */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-3xl mx-auto border-t border-emerald-500/20 text-left">
-            <div className="space-y-1">
-              <div className="text-amber-400 text-3xl font-bold font-serif">150+</div>
-              <div className="text-xs text-emerald-200/60 uppercase tracking-widest">Happy Clients</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-amber-400 text-3xl font-bold font-serif">100%</div>
-              <div className="text-xs text-emerald-200/60 uppercase tracking-widest">Organic Options</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-amber-400 text-3xl font-bold font-serif">10+</div>
-              <div className="text-xs text-emerald-200/60 uppercase tracking-widest">Expert Gardeners</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-amber-400 text-3xl font-bold font-serif">24/7</div>
-              <div className="text-xs text-emerald-200/60 uppercase tracking-widest">Support Response</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Capabilities Section */}
-      <section id="homepage-capabilities" className="max-w-7xl mx-auto px-6 space-y-16">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-emerald-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 block w-fit mx-auto">
-            What We Do
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight font-serif">
-            Our Full Range of Service Capabilities
-          </h2>
-          <div className="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
-          <p className="text-slate-600 text-sm leading-relaxed pt-2">
-            No guess-work. Palmgate Gardeners provides standardized, professional landscaping, soil science, and specialized outdoor property care across Harare, Mabvazuva, and surrounding regions.
-          </p>
-        </div>
-
-        {/* Capabilities Custom Bento Grid design */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {capabilities.map((cap, idx) => (
-            <div 
-              key={idx} 
-              className={`bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between hover:border-emerald-700/40 hover:shadow-lg transition-all duration-300 relative group ${
-                idx === 0 ? "md:col-span-2 xl:col-span-2" : ""
-              }`}
-            >
-              {/* Subtle accent hover indicator */}
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-emerald-600 to-amber-500 rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <div className="w-12 h-12 bg-emerald-50 text-emerald-800 rounded-2xl flex items-center justify-center group-hover:bg-emerald-800 group-hover:text-emerald-50 transition-colors duration-300">
-                    <span className="material-symbols-outlined text-[26px]">{cap.icon}</span>
-                  </div>
-                  <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-100 rounded-lg">
-                    {cap.tag}
-                  </span>
-                </div>
-                
-                <h3 className="text-lg font-bold text-slate-900 font-serif leading-snug">
-                  {cap.title}
-                </h3>
-                <p className="text-slate-500 text-xs leading-relaxed font-sans">
-                  {cap.desc}
-                </p>
+              {/* Tag Badge and Index Indicator */}
+              <div className="inline-flex items-center gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 text-amber-300 bg-amber-400/15 border border-amber-300/20 rounded-full backdrop-blur-md select-none">
+                  {currentSlide.tag}
+                </span>
+                <span className="text-[10px] font-mono tracking-wider text-emerald-300/80 uppercase select-none">
+                  Slide {currentIndex + 1} of {SLIDES.length}
+                </span>
               </div>
 
-              <div className="pt-5 mt-5 border-t border-slate-100/80 flex items-center justify-between">
-                <span className="text-[10px] text-slate-400 font-mono tracking-tight flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                  Active capability
-                </span>
+              {/* Service Name Title */}
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] font-serif">
+                {currentSlide.title}
+              </h1>
+
+              {/* Concise Value Description */}
+              <p className="text-slate-200 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl font-light leading-relaxed font-sans">
+                {currentSlide.desc}
+              </p>
+
+              {/* Highlighted bullets */}
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 max-w-2xl text-xs sm:text-sm text-slate-300 pt-2 font-sans">
+                {currentSlide.highlights.map((hl, k) => (
+                  <li key={k} className="flex items-center gap-2">
+                    <span className="material-symbols-outlined text-amber-400 text-[16px] flex-shrink-0 select-none">check_circle</span>
+                    <span>{hl}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Interactive buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
                 <a 
-                  href={`https://wa.me/263785366349?text=${encodeURIComponent(cap.whatsapp)}`}
+                  href={`https://wa.me/263785366349?text=${encodeURIComponent(currentSlide.whatsapp)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 bg-[#25D366]/10 hover:bg-[#25D366] text-[#122615] hover:text-white font-bold rounded-xl text-xs transition-colors flex items-center gap-1 cursor-pointer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-6 py-3.5 sm:px-8 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl shadow-lg transition-all hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer text-center text-xs sm:text-sm"
                 >
-                  <span className="material-symbols-outlined text-[13px]">chat</span>
-                  Enquire
+                  <span className="material-symbols-outlined text-base sm:text-lg select-none">chat</span>
+                  Book via WhatsApp
                 </a>
+                <button 
+                  onClick={(e) => { 
+                    e.stopPropagation();
+                    onNavigate('services');
+                  }}
+                  className="px-6 py-3.5 sm:px-8 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/20 hover:border-white/40 transition-colors flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm"
+                >
+                  <span className="material-symbols-outlined text-base sm:text-lg select-none">view_list</span>
+                  View All Services
+                </button>
               </div>
-            </div>
-          ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-          {/* Dynamic "Need a custom formulation?" card to round up the grid neatly */}
-          <div className="bg-[#122615] text-emerald-50 rounded-3xl p-6 flex flex-col justify-between border border-emerald-950 shadow-xl relative overflow-hidden xl:col-span-1">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-amber-400/5 rounded-full blur-2xl"></div>
-            <div className="space-y-4 relative z-10">
-              <div className="w-10 h-10 bg-amber-400 text-[#122615] rounded-xl flex items-center justify-center font-bold">
-                <span className="material-symbols-outlined text-[20px]">psychiatry</span>
-              </div>
-              <h3 className="text-sm font-bold font-serif text-white">Custom Property Needs?</h3>
-              <p className="text-[10px] leading-relaxed text-emerald-200/80 font-sans">
-                Whether you have an extensive commercial park, vertical wall structures requiring precision irrigation loops, or specific soil issues, let our chief designer inspect your property completely free of charge.
-              </p>
-            </div>
+        {/* Manual Left/Right Arrow Navigation Controls */}
+        <button 
+          onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/40 hover:bg-slate-950/85 border border-white/10 hover:border-white/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-white z-35 cursor-pointer select-none opacity-0 group-hover/slideshow:opacity-100 hidden md:flex"
+          aria-label="Previous Slide"
+        >
+          <span className="material-symbols-outlined text-[24px]">chevron_left</span>
+        </button>
+        <button 
+          onClick={(e) => { e.stopPropagation(); handleNext(); }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/40 hover:bg-slate-950/85 border border-white/10 hover:border-white/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-all text-white z-35 cursor-pointer select-none opacity-0 group-hover/slideshow:opacity-100 hidden md:flex"
+          aria-label="Next Slide"
+        >
+          <span className="material-symbols-outlined text-[24px]">chevron_right</span>
+        </button>
+
+        {/* Bottom Slide Indicators/Dots */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-35">
+          {SLIDES.map((_, idx) => (
             <button 
-              onClick={onOpenConsultation}
-              className="mt-6 w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-[#122615] hover:scale-[1.01] transition-all font-bold text-xs rounded-xl cursor-pointer shadow-md text-center"
-            >
-              Consult Chief Designer
-            </button>
-          </div>
+              key={idx}
+              onClick={(e) => { e.stopPropagation(); setCurrentIndex(idx); }}
+              className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-8 bg-amber-400' : 'w-2 bg-white/40 hover:bg-white/70'}`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
       </section>
 
