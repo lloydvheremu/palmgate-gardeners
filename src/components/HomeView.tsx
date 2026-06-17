@@ -19,9 +19,11 @@ import sweeping2 from '../assets/images/sweeping2.jpeg';
 import palmgateLighting from '../assets/images/palmgate_lighting_1781602228945.jpg';
 // @ts-ignore
 import palmgateGutter from '../assets/images/palmgate_gutter_1781602247173.jpg';
+// @ts-ignore
+import solar1 from '../assets/images/solar1.jpeg';
 
 interface HomeViewProps {
-  onNavigate: (tab: ActiveTab) => void;
+  onNavigate: (tab: ActiveTab, serviceId?: string) => void;
   onOpenConsultation: () => void;
 }
 
@@ -144,6 +146,34 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
         "Deep water flushing of gutter and runs",
         "Rainwater harvesting prep support",
         "Preventive building foundation safety checks"
+      ]
+    },
+    {
+      id: "solar",
+      title: "Solar Panel Cleaning & Care",
+      desc: "In Zimbabwe, thick dust blocks clean solar rays, dropping electrical yield by up to 30%. We use telescopic scratch-free microfiber washing rods and mineral-free rinse water to restore your solar efficiency.",
+      image: solar1,
+      whatsapp: "Hi Palmgate, I saw your Solar Panel Cleaning & Care slide and would like to get a quote to wash our solar panels.",
+      tag: "Solar Optimization",
+      highlights: [
+        "Specialized scratch-free wash rods",
+        "Safe, low-pressure mineralless rinse",
+        "Restores up to 30% lost daylight yield",
+        "Complete roof & bracket safety audits"
+      ]
+    },
+    {
+      id: "cleanup",
+      title: "Post-Event Fast Spotless Clears",
+      desc: "Fast, reliable lawn and property clears after private events, garden weddings, and corporate gatherings. Our uniformed staff removes all trash, sweeps pavement paths, and restores your tidy property.",
+      image: sweeping2,
+      whatsapp: "Hi Palmgate, I'd like a quote for your Post Event Cleanup service for an upcoming gathering.",
+      tag: "Pristine Cleanup",
+      highlights: [
+        "Fast municipal & organic trash clearance",
+        "Driveway, lawn, & porch deep sweep reviews",
+        "Uniformed on-time trustworthy technicians",
+        "Restores pristine landscaped order"
       ]
     }
   ];
@@ -312,12 +342,12 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
                 <button 
                   onClick={(e) => { 
                     e.stopPropagation();
-                    onNavigate('services');
+                    onNavigate('services', currentSlide.id);
                   }}
                   className="px-6 py-3.5 sm:px-8 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/20 hover:border-white/40 transition-colors flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm"
                 >
-                  <span className="material-symbols-outlined text-base sm:text-lg select-none">view_list</span>
-                  View All Services
+                  <span className="material-symbols-outlined text-base sm:text-lg select-none">info</span>
+                  View Service Details
                 </button>
               </div>
             </motion.div>

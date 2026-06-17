@@ -3,7 +3,7 @@ import { ActiveTab } from '../types';
 import Logo from './Logo';
 
 interface FooterProps {
-  onNavigate: (tab: ActiveTab) => void;
+  onNavigate: (tab: ActiveTab, serviceId?: string) => void;
   onOpenConsultation: () => void;
 }
 

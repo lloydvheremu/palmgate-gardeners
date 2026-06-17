@@ -10,6 +10,7 @@ import ContactView from './components/ContactView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
 
   // Modal Form States
@@ -18,8 +19,13 @@ export default function App() {
   const [modalAddress, setModalAddress] = useState('');
   const [modalConfirmed, setModalConfirmed] = useState(false);
 
-  const handleNavigate = (tab: ActiveTab) => {
+  const handleNavigate = (tab: ActiveTab, serviceId?: string) => {
     setActiveTab(tab);
+    if (tab === 'services') {
+      setSelectedServiceId(serviceId || null);
+    } else {
+      setSelectedServiceId(null);
+    }
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
@@ -60,6 +66,8 @@ export default function App() {
         )}
         {activeTab === 'services' && (
           <ServicesView 
+            selectedServiceId={selectedServiceId}
+            setSelectedServiceId={setSelectedServiceId}
             onOpenConsultation={() => setIsConsultationModalOpen(true)} 
           />
         )}

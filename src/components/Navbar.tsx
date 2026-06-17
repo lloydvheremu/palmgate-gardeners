@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 interface NavbarProps {
   activeTab: ActiveTab;
-  onNavigate: (tab: ActiveTab) => void;
+  onNavigate: (tab: ActiveTab, serviceId?: string) => void;
   onOpenConsultation: () => void;
 }
 
@@ -13,10 +13,21 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
 
   const navItems: { id: ActiveTab; label: string; icon: string }[] = [
     { id: 'home', label: 'Home', icon: 'home' },
-    { id: 'services', label: 'Services & Quote', icon: 'room_service' },
+    { id: 'services', label: 'Services', icon: 'room_service' },
     { id: 'gallery', label: 'Gallery', icon: 'collections' },
     { id: 'about', label: 'About Us', icon: 'info' },
-    // { id: 'contact', label: 'Calendar & Book', icon: 'calendar_month' }
+  ];
+
+  const servicesChildren = [
+    { id: 'landscaping', label: 'Landscaping & Design', icon: 'filter_vintage' },
+    { id: 'lawn', label: 'Premium Turfing & Lawn Care', icon: 'grass' },
+    { id: 'pruning', label: 'Tree & Hedge Sculpting', icon: 'content_cut' },
+    { id: 'cleaning', label: 'Deep Garden Clean-up', icon: 'delete_sweep' },
+    { id: 'irrigation', label: 'Smart Irrigation Systems', icon: 'potted_plant' },
+    { id: 'lighting', label: 'Outdoor Lighting Systems', icon: 'wb_sunny' },
+    { id: 'gutter', label: 'Gutter Clearance & Care', icon: 'cleaning_services' },
+    { id: 'solar', label: 'Solar Panel Cleaning & Care', icon: 'solar_power' },
+    { id: 'cleanup', label: 'Post-Event Fast Spotless Clears', icon: 'event_available' },
   ];
 
   const handleNavClick = (tabId: ActiveTab) => {
@@ -41,16 +52,54 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
 
         {/* DESKTOP NAV ITEMS */}
         <nav className="hidden lg:flex items-center gap-1.5" id="desktop-nav-menu">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === item.id ? 'bg-[#1e3f20] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
-            >
-              <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            if (item.id === 'services') {
+              return (
+                <div key={item.id} className="relative group">
+                  <button
+                    onClick={() => handleNavClick('services')}
+                    className={`px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === 'services' ? 'bg-[#1e3f20] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+                  >
+                    <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
+                    {item.label}
+                    <span className="material-symbols-outlined text-[14px] transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
+                  </button>
+                  
+                  {/* Dropdown menu */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-250 z-50">
+                    <div className="bg-white rounded-2xl border border-slate-200 shadow-xl p-3 w-80 grid gap-1 grid-cols-1">
+                      <div className="text-[10px] uppercase tracking-widest text-slate-400 font-bold px-3 py-1.5 border-b border-slate-50">
+                        Our Specialist Services
+                      </div>
+                      {servicesChildren.map((child) => (
+                        <button
+                          key={child.id}
+                          onClick={() => {
+                            onNavigate('services', child.id);
+                            setMobileMenuOpen(false);
+                          }}
+                          className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs text-left text-slate-650 hover:text-[#1e3f20] hover:bg-emerald-50/60 transition-all font-medium cursor-pointer"
+                        >
+                          <span className="material-symbols-outlined text-teal-850 text-[18px]">{child.icon}</span>
+                          <span>{child.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === item.id ? 'bg-[#1e3f20] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'}`}
+              >
+                <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
+                {item.label}
+              </button>
+            );
+          })}
         </nav>
 
         {/* PHONE / ACCENT CTA */}
@@ -99,19 +148,54 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
 
       {/* MOBILE DRAWER NAV */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl p-4 space-y-3 animate-fade-in z-50">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl p-4 space-y-3 animate-fade-in z-50 max-h-[85vh] overflow-y-auto">
           <span className="text-[10px] uppercase tracking-widest text-[#1e3f20] font-bold block pb-1 border-b border-slate-100">Browse Palmgate Gardeners</span>
           <div className="flex flex-col gap-1 text-left">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`w-full px-4 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all flex items-center gap-3 cursor-pointer ${activeTab === item.id ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
-              >
-                <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              if (item.id === 'services') {
+                return (
+                  <div key={item.id} className="space-y-1">
+                    <button
+                      onClick={() => handleNavClick('services')}
+                      className={`w-full px-4 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all flex items-center justify-between cursor-pointer ${activeTab === 'services' ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
+                        {item.label}
+                      </div>
+                      <span className="text-[10px] uppercase font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">9 Packages</span>
+                    </button>
+                    
+                    {/* Collapsible/Indented Mobile child services */}
+                    <div className="pl-6 pt-1 pb-2 grid gap-1 border-l-2 border-slate-100 ml-6">
+                      {servicesChildren.map((child) => (
+                        <button
+                          key={child.id}
+                          onClick={() => {
+                            onNavigate('services', child.id);
+                            setMobileMenuOpen(false);
+                          }}
+                          className="w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-500 hover:bg-slate-50 hover:text-[#1e3f20] text-left flex items-center gap-2 cursor-pointer transition-colors"
+                        >
+                          <span className="material-symbols-outlined text-teal-800 text-[16px]">{child.icon}</span>
+                          <span>{child.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`w-full px-4 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all flex items-center gap-3 cursor-pointer ${activeTab === item.id ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
+                >
+                  <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
             <a

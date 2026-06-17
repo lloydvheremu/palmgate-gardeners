@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { QuoteState } from '../types';
 
 interface ServicesViewProps {
+  selectedServiceId: string | null;
+  setSelectedServiceId: (id: string | null) => void;
   onOpenConsultation: () => void;
 }
 
-export default function ServicesView({ onOpenConsultation }: ServicesViewProps) {
+export default function ServicesView({ selectedServiceId, setSelectedServiceId, onOpenConsultation }: ServicesViewProps) {
   const [gardenSize, setGardenSize] = useState<'small' | 'medium' | 'large' | 'estate'>('medium');
   const [selectedServices, setSelectedServices] = useState<string[]>([
     'lawn-mowing',
@@ -88,94 +90,277 @@ export default function ServicesView({ onOpenConsultation }: ServicesViewProps) 
 
   const servicesList = [
     {
+      id: "landscaping",
       icon: "outdoor_garden",
+      iconName: "filter_vintage",
       title: "Landscaping & Garden Design",
       desc: "Transform your outdoor space with a layout tailored to local soils. Includes flagstone paving paths, hand-laid ornamental flower borders, and custom dry riverbed stone installations.",
-      highlight: "Custom Blueprints"
+      highlight: "Custom Blueprints",
+      details: [
+        "Symmetrical flagstone pathway layout & structuring",
+        "Expert plant selections matching your soil hydration properties",
+        "Bespoke floral palette selections & garden ornamental beds",
+        "Full 3D/2D planning blueprints for premium estates & compounds",
+        "Professional flower border building with premium organic mulch"
+      ],
+      whatsapp: "Hi Palmgate, I want a quote for Landscaping & Garden Design."
     },
     {
+      id: "lawn",
       icon: "grass",
+      iconName: "grass",
       title: "Premium Turfing & Lawn Care",
       desc: "Laying professional instant lawns (Kikuyu, Paspalum, or Couch grass). Includes seasonal aerating, biological soil feeding, top-dressing turf feed, and smart spot weed treatments.",
-      highlight: "Organic Feed Included"
+      highlight: "Organic Feed Included",
+      details: [
+        "Certified organic certified instant lawn supply & roll-out",
+        "Deep core aeration to relieve compacted clay layers in Zimbabwe soils",
+        "Scheduled custom-height mowing with professional low-noise gear",
+        "Precision edges, weeding bed clearance, and biological turf feed solutions"
+      ],
+      whatsapp: "Hi Palmgate, I noticed your Lawn Care package and want a lawn turfing/maintenance estimate."
     },
     {
+      id: "pruning",
       icon: "content_cut",
+      iconName: "content_cut",
       title: "Tree & Shrub Care / Hedge Sculpting",
       desc: "Precision pruning and formal box hedge sculpting. Our expert horticulturists keep hedges tight, clear dead wood safely, and shape ornamental shrubs with flawless lines.",
-      highlight: "Pruning Up to 4m"
+      highlight: "Pruning Up to 4m",
+      details: [
+        "Laser-straight formal box hedge and compound boundary cutting",
+        "Deadwood removal for safety, aesthetic value, and lighting gain",
+        "Ornamental shrub shaping, rose pruning, and seasonal canopy trims",
+        "Thorough organic branch hauling, shredding, and clearance"
+      ],
+      whatsapp: "Hi Palmgate, I would like to get a quote to trim and sculpt our perimeter hedges."
     },
     {
+      id: "cleaning",
       icon: "delete_sweep",
+      iconName: "delete_sweep",
       title: "Deep Garden Clean-up & Waste clears",
       desc: "Seasonal leaves and debris clearance. We run comprehensive branch, weed, and leaf sweeps, mulching the organics. Includes safe, eco-certified branch and organic compost hauling.",
-      highlight: "Zero Waste Landfill"
+      highlight: "Zero Waste Landfill",
+      details: [
+        "Thorough pavement joint weed-purging and brick chemical detail cleaning",
+        "Raking dry grass thatch layers to ventilate root beds and lawn prep",
+        "Seasonal acacia leaf, twig, and general organic material compound sweeps",
+        "Eco-certified branches and organic green waste hauling and compost conversion"
+      ],
+      whatsapp: "Hi Palmgate, I want a quote for seasonal garden/yard cleaning and deep cleanup."
     },
     {
-      icon: "ld_water", // Fallback text icon or generic water icon
+      id: "irrigation",
+      icon: "ld_water",
       iconName: "potted_plant",
-      title: "Irrigation & Ambient Lighting",
-      desc: "Install weather-smart drip lines and automated controller boxes. We tune spray nozzles to maximize coverage while cutting water waste. Ambient architectural spotlighting.",
-      highlight: "Water Saving Tech"
+      title: "Smart Irrigation Systems",
+      desc: "Install weather-smart drip lines and automated controller boxes. We tune spray nozzles to maximize coverage while cutting water waste.",
+      highlight: "Water Saving Tech",
+      details: [
+        "Custom, leak-proof micro-drip networks for hedges and borders",
+        "Automated controller systems and water zone timers (WiFi/Smart models)",
+        "Accurate nozzle pressure adjustments to minimize runoff and water wastage",
+        "Seasonal system audits, filter cleanups, and spray nozzle replacements"
+      ],
+      whatsapp: "Hi Palmgate, I'd like a quote for putting in an automated custom drip irrigation system."
     },
     {
+      id: "lighting",
+      icon: "lightbulb",
+      iconName: "wb_sunny",
+      title: "Outdoor Lighting Systems",
+      desc: "Illuminate your garden pathing with low-voltage warm brass LED stake spotlights, crown accents, and focus fixtures that combine nighttime security with serene visual warmth.",
+      highlight: "Warm LED Accents",
+      details: [
+        "Low-voltage garden pathways post/stake lighting setup",
+        "Beautiful tree canopy, focal shrub, and flowerbed spot spotlighting",
+        "Time-delayed twilight sensors and automated motion integration",
+        "Weatherproof heavy-duty brass/aluminum outdoor landscape wiring"
+      ],
+      whatsapp: "Hi Palmgate, I'd like to get a custom low-voltage LED landscape lighting quote."
+    },
+    {
+      id: "gutter",
       icon: "cleaning_bucket",
       iconName: "cleaning_services",
       title: "Gutter Clearance & Water Harvesting",
       desc: "Complete clearing of dry seasonal leaves, dirt, and nests from roof gutters so your rainwater harvesting tank captures transparent, clean organic water.",
-      highlight: "Rain Season Preparedness"
+      highlight: "Rain Preparedness",
+      details: [
+        "Certified operator high-reach ladder and harness clearing of all gutters",
+        "Full downspout wash-throughs to verify zero blockages or silt traps",
+        "Rainwater flow testing and harvesting mesh adapter verification",
+        "Foundation drainage reviews next to high-volume downspout outputs"
+      ],
+      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
+    },
+    {
+      id: "solar",
+      icon: "solar_power",
+      iconName: "solar_power",
+      title: "Solar Panel Cleaning & Care",
+      desc: "Maximize solar efficiency under thick dust. We clean panels with scratch-free telescopic brushes, removing pollen, hard-water spots, and baked soot safely.",
+      highlight: "Daylight Boost 30%",
+      details: [
+        "Telescopic water-fed scratch-resistant microfiber brushes",
+        "De-ionized pure spot-free water rinses with safe, low-pressure washes",
+        "Clears baked-on bird droppings, fireplace soot, and heavy iron-clay dust",
+        "Structural bracket and electrical safety inspection with photo updates"
+      ],
+      whatsapp: "Hi Palmgate, I want a quote to perform specialized solar panel washing on my house."
+    },
+    {
+      id: "cleanup",
+      icon: "cleaning_bucket",
+      iconName: "event_available",
+      title: "Post-Event Fast Spotless Clears",
+      desc: "Rapid response house-clearing and garden sweeping after weddings, corporate parties, and private dinners. We leave your lawns and pavements spotless.",
+      highlight: "Pristine Ground",
+      details: [
+        "Immediate morning-after collection of glass, papers, and trash",
+        "Porch, lawn, and brick driveway sweep and power washing as needed",
+        "Uniformed respectful workforce deployed for fast turnaround",
+        "Waste disposal and site restoration under professional ecological standards"
+      ],
+      whatsapp: "Hi Palmgate, I saw your post-event cleanup and want a service quote for our upcoming gathering."
     }
   ];
 
+  const currentService = servicesList.find(s => s.id === selectedServiceId);
+
   return (
     <div className="space-y-24 pb-16 animate-fade-in" id="services-view">
-      {/* Banner / Header */}
-      <section className="text-center max-w-4xl mx-auto px-6 space-y-6 pt-10">
-        <span className="text-emerald-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100">Palmgate Gardeners Services Portfolio</span>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 font-serif leading-tight">
-          Nurturing Nature, <br />
-          <span className="italic font-normal text-emerald-800">One Plot at a Time</span>
-        </h1>
-        <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
-          From residential backyards to wide institution green parks, our trained Zimbabwe field crews keep your soil vibrant, turf plush, and flowerbeds blooming beautifully.
-        </p>
-      </section>
+      {currentService ? (
+        /* Detailed View of a Specific Service */
+        <section className="max-w-4xl mx-auto px-6 pt-10">
+          <button 
+            onClick={() => setSelectedServiceId(null)}
+            className="inline-flex items-center gap-2 group text-slate-500 hover:text-emerald-800 font-semibold mb-8 transition-colors font-sans text-xs cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+            Back to All Services
+          </button>
 
-      {/* Services grid */}
-      <section className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesList.map((srv, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col justify-between hover:border-emerald-700/40 transition-all duration-300 shadow-sm hover:shadow-md"
-            >
-              <div className="space-y-5">
-                <div className="flex justify-between items-start">
-                  <div className="w-12 h-12 bg-emerald-50 text-emerald-800 rounded-xl flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[28px]">{srv.iconName || srv.icon}</span>
-                  </div>
-                  <span className="text-xs font-semibold px-2.5 py-1 bg-amber-50 text-amber-800 rounded-lg border border-amber-100">
-                    {srv.highlight}
-                  </span>
+          <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-xl space-y-8 relative overflow-hidden">
+            {/* Soft decorative background circles */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 relative z-10">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 bg-emerald-50 text-emerald-800 rounded-2xl flex items-center justify-center">
+                  <span className="material-symbols-outlined text-[36px]">{currentService.iconName || currentService.icon}</span>
                 </div>
-                <h3 className="text-xl font-semibold font-serif text-slate-900">{srv.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{srv.desc}</p>
-              </div>
-              <div className="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs">
-                <span className="text-slate-400 font-medium">Available across Zimbabwe</span>
-                <a 
-                  href={`https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20inquire%20about%20your%20${encodeURIComponent(srv.title)}%20services.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-800 font-semibold flex items-center gap-1 hover:underline cursor-pointer"
-                >
-                  Inquire Now <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-                </a>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-100 rounded-lg">
+                    {currentService.highlight}
+                  </span>
+                  <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif mt-1">{currentService.title}</h1>
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+
+            <div className="space-y-6 relative z-10">
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-sans font-light">
+                {currentService.desc}
+              </p>
+
+              <div className="bg-slate-50/80 border border-slate-150 rounded-2xl p-6 sm:p-8 space-y-4">
+                <h3 className="font-serif font-bold text-slate-900 text-lg flex items-center gap-2">
+                  <span className="material-symbols-outlined text-emerald-800">task_alt</span>
+                  What is Included in this Package:
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-650 font-sans">
+                  {currentService.details.map((detail, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 pt-0.5 select-none">check_circle</span>
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-r from-emerald-950 to-emerald-900 text-emerald-50 rounded-2xl p-6 sm:p-8 space-y-4">
+                <h4 className="font-serif font-bold text-white text-base">Book a Visit Across Zimbabwe</h4>
+                <p className="text-emerald-100/80 text-xs sm:text-sm leading-relaxed">
+                  We offer absolutely free, offline-safe measurement and soil assessments in Harare, Mabvazuva, Glen Lorne, Borrowdale, and other provinces around Zimbabwe. No commitments are necessary.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                  <a 
+                    href={`https://wa.me/263785366349?text=${encodeURIComponent(currentService.whatsapp)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl shadow transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-base sm:text-lg select-none">chat</span>
+                    Book Service via WhatsApp
+                  </a>
+                  <button 
+                    onClick={onOpenConsultation}
+                    className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-xl shadow transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined text-base sm:text-lg select-none">spa</span>
+                    Request Free Site Inspection
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* Original Grid View of Services */
+        <>
+          <section className="text-center max-w-4xl mx-auto px-6 space-y-6 pt-10">
+            <span className="text-emerald-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100">Palmgate Gardeners Services Portfolio</span>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 font-serif leading-tight">
+              Nurturing Nature, <br />
+              <span className="italic font-normal text-emerald-800">One Plot at a Time</span>
+            </h1>
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+              From residential backyards to wide institution green parks, our trained Zimbabwe field crews keep your soil vibrant, turf plush, and flowerbeds blooming beautifully.
+            </p>
+          </section>
+
+          {/* Services grid */}
+          <section className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {servicesList.map((srv, idx) => (
+                <div 
+                  key={idx} 
+                  onClick={() => setSelectedServiceId(srv.id)}
+                  className="bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col justify-between hover:border-emerald-700/40 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
+                >
+                  <div className="space-y-5">
+                    <div className="flex justify-between items-start">
+                      <div className="w-12 h-12 bg-emerald-50 text-emerald-800 rounded-xl flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                        <span className="material-symbols-outlined text-[28px]">{srv.iconName || srv.icon}</span>
+                      </div>
+                      <span className="text-xs font-semibold px-2.5 py-1 bg-amber-50 text-amber-800 rounded-lg border border-amber-100">
+                        {srv.highlight}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-semibold font-serif text-slate-900 group-hover:text-emerald-800 transition-colors">{srv.title}</h3>
+                    <p className="text-slate-605 text-sm leading-relaxed font-light">{srv.desc}</p>
+                  </div>
+                  <div className="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs">
+                    <span className="text-slate-400 font-medium">Available across Zimbabwe</span>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedServiceId(srv.id);
+                      }}
+                      className="text-emerald-800 font-semibold flex items-center gap-1 hover:underline cursor-pointer"
+                    >
+                      View Details &amp; Book <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </>
+      )}
 
       {/* Custom Quote Calculator (Hidden for now, strictly WhatsApp communication) */}
       {false && (
