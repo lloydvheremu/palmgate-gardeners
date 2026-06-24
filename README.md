@@ -62,9 +62,59 @@ src/
 
 ---
 
-## 🛠️ Performance & Build Infrastructure
+## 🛠️ Tech Stack & Key Technologies
 
-*   **Type Safety**: Built with robust TypeScript interfaces (defined inside `src/types.ts`).
-*   **Modern Icons**: Utilizes modern **Google Material Symbols** icons for all vector glyphs.
-*   **Responsive Flow**: Mobile-responsive styling built with Tailwind utility grids.
-*   **Clean Styling**: Single global CSS layout ensuring rapid browser asset execution.
+Our application is built using a modern, fast, and highly reliable front-end stack:
+
+*   **Framework**: [React 19](https://react.dev/) — Declared with functional components, modern Hooks, and strict state management.
+*   **Build Tool**: [Vite 6](https://vite.dev/) — Provides ultra-fast Hot Module Replacement (HMR) and optimized production bundles.
+*   **Language**: [TypeScript 5](https://www.typescriptlang.org/) — Ensures full static type safety, autocomplete, and robust interface compliance across the codebase.
+*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) — Leverages modern CSS utility classes and modern layout engines for beautiful, responsive design.
+*   **Animation**: [Motion (Framer Motion)](https://motion.dev/) — Implements lightweight, highly responsive interactive animations and visual fade effects.
+*   **Icons**: [Lucide React](https://lucide.dev/) & [Google Material Symbols](https://fonts.google.com/icons) — Modern, lightweight vector icons for intuitive user experiences.
+
+---
+
+## 🚀 Running Locally
+
+Follow these instructions to run the Palmgate Gardeners project on your local machine:
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed (version **18.0 or higher** is recommended) along with **npm** (comes bundled with Node.js).
+
+### 1. Clone & Navigate
+Clone the repository to your local directory and navigate into the root of the project:
+```bash
+cd palmgate-gardeners
+```
+
+### 2. Install Dependencies
+Install all the required base and developer dependencies:
+```bash
+npm install
+```
+
+### 3. Run the Development Server
+Launch the local Vite development server:
+```bash
+npm run dev
+```
+Once started, open your web browser and navigate to:
+*   **Local**: `http://localhost:3000` (or the port specified in your console output)
+
+### 4. Build for Production
+To generate a fully optimized, production-ready static site bundle inside the `dist/` directory, run:
+```bash
+npm run build
+```
+You can preview the built production bundle locally using:
+```bash
+npm run preview
+```
+
+### 5. Code Quality & Linting
+Ensure type integrity and check for static analysis issues before deploying:
+```bash
+npm run lint
+```
