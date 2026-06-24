@@ -129,145 +129,60 @@ export default function ContactView() {
       {/* Main Booking & Contacts block */}
       <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
         
-        {/* Booking Form (Left) */}
-        <div className="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-xl flex flex-col justify-between">
-          {!formSubmitted ? (
-            <div className="space-y-8">
-              <div className="space-y-2">
-                <span className="text-xs uppercase tracking-widest text-[#1e3f20] font-bold">Free On-Site Inspection</span>
-                <h3 className="text-3xl font-bold font-serif text-slate-950">Book Site Visit</h3>
-                <p className="text-slate-500 text-sm">
-                  We visit your property, inspect soil compaction, check weeds, review grass layouts, and provide a full cost breakdown entirely for free!
-                </p>
-              </div>
+        {/* WhatsApp & Call Direct Booking Panel (Left) */}
+        <div className="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-xl flex flex-col justify-between space-y-8 text-left">
+          <div className="space-y-4">
+            <span className="text-xs uppercase tracking-widest text-[#1e3f20] font-bold">Free On-Site Inspection</span>
+            <h3 className="text-3xl font-bold font-serif text-slate-950">Book Site Visit</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              We visit your property, inspect soil compaction, check weeds, review grass layouts, and provide a full cost breakdown. No commitments are necessary! 
+            </p>
+            <p className="text-slate-500 text-xs leading-relaxed">
+              Currently, form-based website booking is not active. However, we have dedicated field crews ready to schedule your consultation immediately over WhatsApp or direct call.
+            </p>
+          </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4 text-xs block text-left">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="font-bold text-slate-700">Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. John Doe"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 placeholder-slate-400 focus:bg-white focus:border-[#1e3f20] focus:outline-none"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label className="font-bold text-slate-700">WhatsApp / Phone *</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="e.g. +263 782..."
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 placeholder-slate-400 focus:bg-white focus:border-[#1e3f20] focus:outline-none"
-                    />
-                  </div>
-                </div>
+          <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-5 space-y-3">
+            <h4 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <span className="material-symbols-outlined text-emerald-800">event_available</span>
+              Free Scheduling Guidelines
+            </h4>
+            <ul className="space-y-2 text-slate-600 text-xs">
+              <li className="flex items-start gap-1.5">
+                <span className="text-emerald-800 font-bold">✓</span>
+                <span>Includes Harare, Ruwa, Mabvazuva, Glen Lorne, Borrowdale, and other surrounding provinces.</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-emerald-800 font-bold">✓</span>
+                <span>Select any Morning (8am - 12pm) or Afternoon (12pm - 4pm) slot.</span>
+              </li>
+              <li className="flex items-start gap-1.5">
+                <span className="text-emerald-800 font-bold">✓</span>
+                <span>A field supervisor will review and confirm your driving directions via WhatsApp.</span>
+              </li>
+            </ul>
+          </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="font-bold text-slate-700">Email Address</label>
-                    <input
-                      type="email"
-                      placeholder="e.g. name@example.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 placeholder-slate-400 focus:bg-white focus:border-[#1e3f20] focus:outline-none"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label className="font-bold text-slate-700">Estate / Address *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Mabvazuva, Ruwa"
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 placeholder-slate-400 focus:bg-white focus:border-[#1e3f20] focus:outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="font-bold text-slate-700">Preferred Visit Date *</label>
-                    <input
-                      type="date"
-                      required
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 placeholder-slate-400 focus:bg-white focus:border-[#1e3f20] focus:outline-none text-slate-700"
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label className="font-bold text-slate-700">Time Shift *</label>
-                    <select
-                      value={timeslot}
-                      onChange={(e) => setTimeslot(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-750 focus:bg-white focus:border-[#1e3f20] focus:outline-none"
-                    >
-                      <option value="morning">Morning (8am - 12pm)</option>
-                      <option value="afternoon">Afternoon (12pm - 4pm)</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="font-bold text-slate-700">Message / Description of Needs</label>
-                  <textarea
-                    rows={3}
-                    placeholder="Describe your garden space, plant targets, or any gutter cleaning concerns..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 placeholder-slate-400 focus:bg-white focus:border-[#1e3f20] focus:outline-none"
-                  ></textarea>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="px-6 py-4 bg-[#1e3f20] hover:bg-emerald-900 text-white font-bold rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer w-full text-sm"
-                  >
-                    <span className="material-symbols-outlined">schedule_send</span>
-                    Confirm Consultation Slot
-                  </button>
-                </div>
-              </form>
-            </div>
-          ) : (
-            <div className="text-center space-y-6 my-auto max-w-md mx-auto py-10 animate-fade-in block">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 text-[#1e3f20] flex items-center justify-center mx-auto shadow-inner">
-                <span className="material-symbols-outlined font-bold text-[32px]">check_circle</span>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl font-serif text-slate-950 font-bold">Consultation Slot Locked!</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Thank you, <strong className="text-slate-800">{name}</strong>! We have registered your on-site request on <strong className="text-slate-800">{date}</strong> during the <strong className="text-slate-800 uppercase">{timeslot}</strong> slot.
-                </p>
-              </div>
-              
-              <div className="bg-slate-50 p-4 border border-slate-200 rounded-xl block text-xs space-y-1 text-left">
-                <p>📍 Location: <strong className="text-slate-800">{address}</strong></p>
-                <p>📲 WhatsApp: <strong className="text-emerald-800 font-bold">{phone}</strong></p>
-                <p>🙋 Staff Assignment: <strong className="text-slate-800">Ruwa Field Supervisor</strong></p>
-              </div>
-
-              <p className="text-[11px] text-slate-400 block">
-                A horticultural technician is reviewing your schedule in Mabvazuva and will confirm via WhatsApp call within one hour to confirm driving routes.
-              </p>
-              
-              <button
-                type="button"
-                onClick={handleReset}
-                className="px-6 py-2.5 bg-[#1e3f20] text-emerald-50 rounded-xl text-xs font-semibold cursor-pointer"
-              >
-                Schedule Another Slot
-              </button>
-            </div>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <a 
+              href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20book%20a%20free%20on-site%20inspection%20and%20measurement%20consultation%20visit."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-4 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl shadow-md transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-sm cursor-pointer flex-1"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.022-.014-.45-.222-.52-.245-.07-.024-.12-.037-.17.038-.05.075-.195.245-.24.295-.045.05-.09.055-.162.018-.072-.037-.303-.11-.577-.355-.213-.19-.358-.424-.4-.496-.044-.073-.005-.112.032-.148.033-.033.075-.088.112-.132.038-.044.05-.074.075-.124.025-.05.013-.09-.007-.13-.02-.04-.17-.41-.233-.564-.062-.152-.123-.131-.17-.133-.044-.002-.095-.002-.146-.002-.05 0-.131.02-.199.092-.068.074-.261.256-.261.625 0 .368.268.724.305.772.037.048.528.807 1.28 1.127.178.076.317.122.425.156.179.057.342.049.47.03.143-.022.45-.184.52-.363.07-.18.07-.333.05-.362-.02-.028-.07-.045-.143-.058zM12.008 1.916c-5.56 0-10.08 4.52-10.08 10.08 0 1.777.463 3.511 1.343 5.04l-1.428 5.21 5.33-1.4c1.478.806 3.136 1.231 4.829 1.231 5.56 0 10.08-4.52 10.08-10.08 0-5.56-4.52-10.08-10.08-10.08zm0 18.455c-1.508 0-2.986-.405-4.286-1.171l-.307-.182-3.184.835.85-3.1-.2-.318c-.84-1.336-1.283-2.883-1.283-4.478 0-4.63 3.77-8.4 8.4-8.4 2.243 0 4.352.873 5.938 2.46 1.587 1.587 2.46 3.696 2.46 5.94 0 4.63-3.77 8.4-8.4 8.4z"/>
+              </svg>
+              Book via WhatsApp
+            </a>
+            <a 
+              href="tel:+263785366349"
+              className="px-6 py-4 bg-slate-100 hover:bg-slate-200 text-[#1e3f20] font-bold rounded-xl shadow-sm transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-sm cursor-pointer flex-1 border border-slate-250"
+            >
+              <span className="material-symbols-outlined">call</span>
+              Call Us Directly
+            </a>
+          </div>
         </div>
 
         {/* Contact Info Panel (Right) */}

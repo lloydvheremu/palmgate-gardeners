@@ -104,11 +104,11 @@ export default function Footer({ onNavigate, onOpenConsultation }: FooterProps) 
         <div className="space-y-4">
           <h4 className="text-sm font-bold uppercase tracking-wider text-white">Top Services</h4>
           <div className="flex flex-col gap-2 text-xs">
-            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services')}>✔ Kikuyu Turf Laying</span>
-            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services')}>✔ Symmetrical Hedge Sculpting</span>
-            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services')}>✔ Organic Top Dressing compost</span>
-            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services')}>✔ Automatic sprinkler setups</span>
-            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services')}>✔ Roof Gutter leaf clearances</span>
+            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services', 'landscaping')}>✔ Landscaping</span>
+            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services', 'lawn')}>✔ Yard Maintenance</span>
+            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services', 'solar')}>✔ Solar Panel Cleaning</span>
+            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services', 'gutter')}>✔ Gutter Cleaning</span>
+            <span className="block hover:text-white transition-all cursor-pointer" onClick={() => onNavigate('services', 'cleanup')}>✔ Post Event Cleanup</span>
           </div>
         </div>
 

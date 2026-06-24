@@ -157,7 +157,7 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
             </div>
 
             {/* Quote and WhatsApp CTA widgets */}
-            <div className="mt-6 sm:mt-8 pt-4 border-t border-slate-100 space-y-2.5">
+            <div className="mt-6 sm:mt-8 pt-4 border-t border-slate-100">
               <a 
                 href={`https://wa.me/263785366349?text=${encodeURIComponent(item.whatsapp)}`}
                 target="_blank"
@@ -167,13 +167,6 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
                 <span className="material-symbols-outlined text-[16px] select-none">chat</span>
                 Book on WhatsApp
               </a>
-              <button 
-                onClick={onOpenConsultation}
-                className="w-full py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-bold rounded-xl border border-slate-200 transition-colors text-xs flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-[16px] select-none">spa</span>
-                Request Site Measurement
-              </button>
             </div>
           </div>
         ))}
@@ -211,13 +204,15 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
             </div>
           </div>
           <div className="pt-4 sm:pt-6 flex justify-center sm:justify-start">
-            <button 
-              onClick={onOpenConsultation}
+            <a 
+              href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20get%20a%20free%20inspection%20and%20quote%20for%20my%20property."
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 sm:px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold rounded-xl shadow-lg transition-transform hover:scale-[1.02] active:scale-95 flex items-center gap-2 text-xs sm:text-sm cursor-pointer"
             >
-              <span className="material-symbols-outlined text-md">spa</span>
-              Book Your Free Measure &amp; Quote Visit
-            </button>
+              <span className="material-symbols-outlined text-md">chat</span>
+              Book Your Free Measure &amp; Quote Visit via WhatsApp
+            </a>
           </div>
         </div>
       </section>

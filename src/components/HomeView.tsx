@@ -366,13 +366,6 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
                 <span className="material-symbols-outlined text-sm">payments</span>
                 See Service Start Prices
               </button>
-              <button 
-                onClick={onOpenConsultation}
-                className="px-5 py-3 bg-white hover:bg-slate-50 text-[#1e3f20] border border-slate-200 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center gap-2 shadow-sm cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-sm">spa</span>
-                Book Site Inspection
-              </button>
             </div>
           </div>
 

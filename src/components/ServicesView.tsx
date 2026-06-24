@@ -249,18 +249,11 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
                     href={`https://wa.me/263785366349?text=${encodeURIComponent(currentService.whatsapp)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl shadow transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
+                    className="px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl shadow transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer w-full sm:w-auto"
                   >
                     <span className="material-symbols-outlined text-base sm:text-lg select-none">chat</span>
                     Book Service via WhatsApp
                   </a>
-                  <button 
-                    onClick={onOpenConsultation}
-                    className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold rounded-xl shadow transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
-                  >
-                    <span className="material-symbols-outlined text-base sm:text-lg select-none">spa</span>
-                    Request Free Site Inspection
-                  </button>
                 </div>
               </div>
             </div>
