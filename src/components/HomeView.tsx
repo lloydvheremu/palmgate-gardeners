@@ -422,10 +422,10 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
             {/* Standard Plan (Featured) */}
             <div className="bg-[#1e3f20] text-emerald-50 rounded-3xl p-8 border border-emerald-800/20 flex flex-col justify-between shadow-xl relative overflow-hidden group scale-100 lg:scale-[1.03]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
-              <div className="absolute -top-3 right-6 bg-amber-400 text-amber-950 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">
+              <div className="absolute top-3 right-6 bg-amber-400 text-amber-950 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">
                 Highly Popular
               </div>
-              <div className="space-y-6 relative z-10">
+              <div className="space-y-6 relative z-10 pt-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold uppercase tracking-wider text-amber-300">Standard Plan</span>
                   <span className="px-3 py-1 bg-emerald-950/50 text-emerald-300 rounded-full text-xs font-medium">Weekly visits</span>
