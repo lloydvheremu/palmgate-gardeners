@@ -30,6 +30,37 @@ export default function Footer({ onNavigate, onOpenConsultation }: FooterProps) 
               🇿🇼 Zimbabwe Countrywide Care
             </span>
           </div>
+
+          {/* Social Links */}
+          <div className="pt-2 space-y-2">
+            <span className="text-[10px] font-mono tracking-widest text-emerald-400/80 font-bold uppercase block">Follow Our Work:</span>
+            <div className="flex flex-col gap-2">
+              <a 
+                href="https://instagram.com/palmgate_gardeners" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-xs text-slate-400 hover:text-pink-400 transition-colors w-fit"
+              >
+                <svg className="w-4 h-4 text-pink-500 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>@palmgate_gardeners</span>
+              </a>
+              <a 
+                href="https://tiktok.com/@palmgate.gardners" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-xs text-slate-400 hover:text-cyan-400 transition-colors w-fit"
+              >
+                <svg className="w-4 h-4 text-cyan-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.95.17 1.94-.13 2.82-.64.01 1.4-.21 2.8-.75 4.09-.81-.03-1.63-.16-2.42-.42l-.02 5.09c-.06 2.01-.89 3.95-2.39 5.3-1.63 1.48-3.92 2.22-6.11 1.95-2.36-.26-4.52-1.74-5.63-3.87-1.28-2.39-1.07-5.46.54-7.63 1.42-1.95 3.79-3.05 6.22-2.86v4.08c-1.12-.11-2.27.34-2.92 1.27-.77 1.05-.62 2.58.38 3.44.88.79 2.26.78 3.12-.04.47-.46.73-1.11.72-1.77L12.5 0h.025z"/>
+                </svg>
+                <span>@palmgate.gardners</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Quick Links */}

@@ -8,6 +8,7 @@ import GalleryView from './components/GalleryView';
 import AboutView from './components/AboutView';
 import ContactView from './components/ContactView';
 import PricingView from './components/PricingView';
+import SocialFloatingWidget from './components/SocialFloatingWidget';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
@@ -97,6 +98,9 @@ export default function App() {
         onNavigate={handleNavigate} 
         onOpenConsultation={() => setIsConsultationModalOpen(true)} 
       />
+
+      {/* FLOATING SOCIAL MEDIA WIDGET */}
+      <SocialFloatingWidget />
 
       {/* MODAL WINDOW FOR FREE INSPECTION OUTLET */}
       {isConsultationModalOpen && (
