@@ -19,15 +19,11 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
   ];
 
   const servicesChildren = [
-    { id: 'landscaping', label: 'Landscaping & Design', icon: 'filter_vintage' },
-    { id: 'lawn', label: 'Premium Turfing & Lawn Care', icon: 'grass' },
-    { id: 'pruning', label: 'Tree & Hedge Sculpting', icon: 'content_cut' },
-    { id: 'cleaning', label: 'Deep Garden Clean-up', icon: 'delete_sweep' },
-    { id: 'irrigation', label: 'Smart Irrigation Systems', icon: 'potted_plant' },
-    { id: 'lighting', label: 'Outdoor Lighting Systems', icon: 'wb_sunny' },
-    { id: 'gutter', label: 'Gutter Clearance & Care', icon: 'cleaning_services' },
-    { id: 'solar', label: 'Solar Panel Cleaning & Care', icon: 'solar_power' },
-    { id: 'cleanup', label: 'Post-Event Fast Spotless Clears', icon: 'event_available' },
+    { id: 'landscaping', label: 'Landscaping', icon: 'filter_vintage' },
+    { id: 'lawn', label: 'Yard Maintenance', icon: 'grass' },
+    { id: 'solar', label: 'Solar Panel Cleaning', icon: 'solar_power' },
+    { id: 'gutter', label: 'Gutter Cleaning', icon: 'cleaning_services' },
+    { id: 'cleanup', label: 'Post Event Cleanup', icon: 'event_available' },
   ];
 
   const handleNavClick = (tabId: ActiveTab) => {
@@ -163,7 +159,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
                         <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
                         {item.label}
                       </div>
-                      <span className="text-[10px] uppercase font-bold text-slate-450 bg-slate-100 px-2 py-0.5 rounded-md">9 Packages</span>
+                      <span className="text-[10px] uppercase font-bold text-slate-450 bg-slate-100 px-2 py-0.5 rounded-md">5 Packages</span>
                     </button>
                     
                     {/* Collapsible/Indented Mobile child services */}
@@ -201,7 +197,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
           <div className="p-3 bg-gradient-to-br from-amber-50 to-emerald-50/40 rounded-2xl border border-amber-100/75 flex items-center justify-between gap-3 text-left">
             <div className="space-y-0.5 block">
               <span className="text-[8px] font-mono tracking-widest text-amber-850 font-bold uppercase block">Looking for Rates?</span>
-              <span className="text-[11px] font-bold text-slate-800 leading-tight block">All 9 Service Start Prices</span>
+              <span className="text-[11px] font-bold text-slate-800 leading-tight block">All 5 Service Start Prices</span>
             </div>
             <button 
               onClick={() => { onNavigate('pricing'); setMobileMenuOpen(false); }}

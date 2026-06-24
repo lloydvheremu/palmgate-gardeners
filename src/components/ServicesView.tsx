@@ -112,109 +112,25 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       id: "lawn",
       icon: "grass",
       iconName: "grass",
-      title: "Premium Turfing & Lawn Care",
-      price: "$3.50",
-      priceUnit: "per square meter",
-      desc: "Laying professional instant lawns like Kikuyu, Paspalum, or Couch grass. We provide regular mowing, trimming, and standard feeding to keep your grass healthy and green.",
-      highlight: "Green Grass Care",
-      details: [
-        "Instant lawn supply and roll-out installation",
-        "Lawn aeration and soil compaction relief",
-        "Scheduled standard lawn mowing and edging",
-        "Weed clearing and organic lawn feed application"
-      ],
-      whatsapp: "Hi Palmgate, I noticed your Lawn Care package and want a lawn turfing/maintenance estimate."
-    },
-    {
-      id: "pruning",
-      icon: "content_cut",
-      iconName: "content_cut",
-      title: "Tree & Shrub Care / Hedge Sculpting",
+      title: "Yard Maintenance",
       price: "$45",
       priceUnit: "starting rate",
-      desc: "Regular trimming and neat shaping of perimeter hedges, shrubs, and trees. We prune overgrown branches and clear deadwood to keep your garden tidy, safe, and beautiful.",
-      highlight: "Trim & Shape",
+      desc: "Scheduled property yard maintenance, lawn turfing, soil feeding, and comprehensive grounds upkeep. We keep your grass plush, hedges sculpted, and flowerbeds weed-free.",
+      highlight: "Complete Upkeep",
       details: [
-        "Form and box hedge trimming of perimeter hedges",
-        "Clearing dead stems and tree branches safely",
-        "Trimming and shaping of decorative garden shrubs",
-        "Thorough sweeping and removal of trimmed branches"
+        "Scheduled lawn mowing, edging, and professional turfing",
+        "Perimeter hedge sculpting and decorative shrub trimming",
+        "Weed and moss eradication from flowerbeds and paving",
+        "Raking dry thatch and leaf clearance for healthy soil",
+        "Organic compost application and lawn feeding"
       ],
-      whatsapp: "Hi Palmgate, I would like to get a quote to trim and sculpt our perimeter hedges."
-    },
-    {
-      id: "cleaning",
-      icon: "delete_sweep",
-      iconName: "delete_sweep",
-      title: "Deep Garden Clean-up & Waste clears",
-      price: "$50",
-      priceUnit: "starting rate",
-      desc: "Complete clearing of fallen autumn leaves, dry weeds, and grass clippings. We thoroughly sweep your driveways and lawns, leaving your compound spotless.",
-      highlight: "Pristine Yard",
-      details: [
-        "Thorough sweeping of pavements, driveways, and brick pathways",
-        "Digging out dry weeds from paved areas",
-        "Compound sweeps and raking dry lawn thatch leaves",
-        "Rubbish hauling and proper disposal of all green waste"
-      ],
-      whatsapp: "Hi Palmgate, I want a quote for seasonal garden/yard cleaning and deep cleanup."
-    },
-    {
-      id: "irrigation",
-      icon: "ld_water",
-      iconName: "potted_plant",
-      title: "Smart Irrigation Systems",
-      price: "$120",
-      priceUnit: "starting rate",
-      desc: "Installation and repair of garden watering networks and timers. We set up simple drip lines and sprinklers to water your lawns and flower beds efficiently.",
-      highlight: "Efficient Watering",
-      details: [
-        "Installing simple, durable drip lines for hedges and beds",
-        "Setting up watering timers and automatic controllers",
-        "Adjusting spray nozzles for better coverage and less runoff",
-        "Repairing leaks, damaged piping, and cleaning clogged sprayers"
-      ],
-      whatsapp: "Hi Palmgate, I'd like a quote for putting in an automated custom drip irrigation system."
-    },
-    {
-      id: "lighting",
-      icon: "lightbulb",
-      iconName: "wb_sunny",
-      title: "Outdoor Lighting Systems",
-      price: "$90",
-      priceUnit: "starting rate",
-      desc: "Laying low-voltage outdoor LED lights to illuminate your pathways, plants, and trees safely for nighttime beauty and security.",
-      highlight: "Outdoor LED Setup",
-      details: [
-        "Installing pathway post, bollard, and stake lighting",
-        "Spotlighting trees, focal shrubs, and flowerbeds",
-        "Setting up simple twilight-to-dawn night timers",
-        "Safe outdoor-rated weatherproof garden wiring"
-      ],
-      whatsapp: "Hi Palmgate, I'd like to get a custom low-voltage LED landscape lighting quote."
-    },
-    {
-      id: "gutter",
-      icon: "cleaning_bucket",
-      iconName: "cleaning_services",
-      title: "Gutter Clearance & Water Harvesting",
-      price: "$30",
-      priceUnit: "per single roof level",
-      desc: "Clearing leaves, twigs, dirt, and nests from roof gutters to ensure smooth flow and prevent water overflow and foundation damage.",
-      highlight: "Gutter Clearance",
-      details: [
-        "Safe ladder and clearing methods for all gutters",
-        "Thorough downspout water flushing to remove dirt and sand",
-        "Clean-up of twigs, leaves, and blockages",
-        "Reviewing simple gutter flow to prevent foundations overflow"
-      ],
-      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
+      whatsapp: "Hi Palmgate, I want a quote for professional Yard Maintenance."
     },
     {
       id: "solar",
       icon: "solar_power",
       iconName: "solar_power",
-      title: "Solar Panel Cleaning & Care",
+      title: "Solar Panel Cleaning",
       price: "$2.00",
       priceUnit: "per solar panel",
       desc: "Washing heavy dust, pollen, bird droppings, and soot off your house solar panels with non-scratch brushes to restore your energy efficiency.",
@@ -228,10 +144,27 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       whatsapp: "Hi Palmgate, I want a quote to perform specialized solar panel washing on my house."
     },
     {
+      id: "gutter",
+      icon: "cleaning_bucket",
+      iconName: "cleaning_services",
+      title: "Gutter Cleaning",
+      price: "$30",
+      priceUnit: "per single roof level",
+      desc: "Clearing leaves, twigs, dirt, and nests from roof gutters to ensure smooth flow and prevent water overflow and foundation damage.",
+      highlight: "Gutter Clearance",
+      details: [
+        "Safe ladder and clearing methods for all gutters",
+        "Thorough downspout water flushing to remove dirt and sand",
+        "Clean-up of twigs, leaves, and blockages",
+        "Reviewing simple gutter flow to prevent foundations overflow"
+      ],
+      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
+    },
+    {
       id: "cleanup",
       icon: "cleaning_bucket",
       iconName: "event_available",
-      title: "Post-Event Fast Spotless Clears",
+      title: "Post Event Cleanup",
       price: "$75",
       priceUnit: "starting rate",
       desc: "Professional cleaning of compounds, driveways, and lawns after private parties, weddings, or corporate events. We collect all rubbish and leave the venue spotless.",

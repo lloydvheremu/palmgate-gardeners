@@ -20,7 +20,7 @@ import palmgateLighting from '../assets/images/palmgate_lighting_1781602228945.j
 // @ts-ignore
 import palmgateGutter from '../assets/images/palmgate_gutter_1781602247173.jpg';
 // @ts-ignore
-import solar1 from '../assets/images/solar1.jpeg';
+import solar2 from '../assets/images/solar2.jpeg';
 
 interface HomeViewProps {
   onNavigate: (tab: ActiveTab, serviceId?: string) => void;
@@ -52,91 +52,35 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
     },
     {
       id: "lawn",
-      title: "Lawn Maintenance & Turfing",
-      desc: "Laying professional instant lawns like Kikuyu, Paspalum, or Couch grass. We provide regular mowing, trimming, and standard feeding to keep your grass healthy and green.",
+      title: "Yard Maintenance",
+      desc: "Scheduled property yard maintenance, lawn turfing, soil feeding, and comprehensive grounds upkeep. We keep your grass plush, hedges sculpted, and flowerbeds weed-free.",
       image: palmgateMowing,
-      whatsapp: "Hi Palmgate, I noticed your Lawn Maintenance & Turfing slide and want to enquire about instant lawn turfing or lawn rehabilitation.",
+      whatsapp: "Hi Palmgate, I want a quote for professional Yard Maintenance.",
       tag: "Yard Maintenance",
       highlights: [
-        "Instant lawn supply and laying",
-        "Standard lawn mowing and care",
-        "Weed clearing and lawn tidy-ups",
-        "Organic compost and lawn feed"
+        "Scheduled lawn mowing, edging, and turfing",
+        "Perimeter hedge sculpting and pruning",
+        "Weed and moss eradication from flowerbeds",
+        "Organic compost and lawn feed application"
       ]
     },
     {
-      id: "pruning",
-      title: "Tree Pruning & Hedge Shaping",
-      desc: "Regular trimming and neat shaping of perimeter hedges, shrubs, and trees. We prune overgrown branches and clear deadwood to keep your garden tidy, safe, and beautiful.",
-      image: palmgatePruning,
-      whatsapp: "Hi Palmgate, I saw your geometric hedge sculpting. I would like an estimate to trim my perimeter hedges.",
-      tag: "Hedge Shaping",
+      id: "solar",
+      title: "Solar Panel Cleaning",
+      desc: "Washing heavy dust, pollen, bird droppings, and soot off your house solar panels with non-scratch brushes to restore your energy efficiency.",
+      image: solar2,
+      whatsapp: "Hi Palmgate, I saw your Solar Panel Cleaning & Care slide and would like to get a quote to wash our solar panels.",
+      tag: "Solar Panel Care",
       highlights: [
-        "Neat formal hedge and boundary shaping",
-        "Safe cutting of tree limbs and branches",
-        "Trimming decorative garden shrubs",
-        "Full clean-up of pruned foliage"
-      ]
-    },
-    {
-      id: "cleaning",
-      title: "Garden Cleaning & Waste Removal",
-      desc: "Complete clearing of fallen autumn leaves, dry weeds, and grass clippings. We thoroughly sweep your driveways and lawns, leaving your compound spotless.",
-      image: sweeping1,
-      whatsapp: "Hi Palmgate, I want a quote for seasonal garden cleaning, leaf sweep, and pavement joint detail.",
-      tag: "Compound Cleaning",
-      highlights: [
-        "Thorough leaf and garden debris sweep",
-        "Weed removal from driveways and paths",
-        "Compound sweeps and lawn raking",
-        "Rubbish hauling and proper disposal"
-      ]
-    },
-    {
-      id: "irrigation",
-      title: "Garden Irrigation Systems",
-      desc: "Installation and repair of garden watering networks and timers. We set up simple drip lines and sprinklers to water your lawns and flower beds efficiently.",
-      image: palmgateWatering,
-      whatsapp: "Hi Palmgate, I'd like a quote for a custom drip irrigation loop and automated watering timer.",
-      tag: "Irrigation & Watering",
-      highlights: [
-        "Drip irrigation and sprayer setup",
-        "Watering zone automatic timers",
-        "Fixing leaks and running repairs",
-        "Adjusting spray nozzles for coverage"
-      ]
-    },
-    {
-      id: "lighting",
-      title: "Outdoor Lighting Systems",
-      desc: "Laying low-voltage outdoor LED lights to illuminate your pathways, plants, and trees safely for nighttime beauty and security.",
-      image: palmgateLighting,
-      whatsapp: "Hi Palmgate, I saw your landscape lighting options and want to talk about adding low-voltage LED lights to our garden.",
-      tag: "Garden Lights",
-      highlights: [
-        "Warm pathway post and stake lights",
-        "Spotlighting trees and shrubs",
-        "Simple automated night timers",
-        "Weatherproof outdoor cabling"
-      ]
-    },
-    {
-      id: "restoration",
-      title: "Yard Cleanup & Restoration",
-      desc: "Reclaiming neglected, overgrown yards. We level uneven grounds, clean up messy layout borders, and refresh paths to restore tidy order to your garden.",
-      image: sweeping2,
-      whatsapp: "Hi Palmgate, my yard is heavily neglected and needs a full-scale hardscape restoration and design treatment.",
-      tag: "Yard Makeover",
-      highlights: [
-        "Clearing overgrown weeds and bush",
-        "Re-laying loose gravel and stones",
-        "Rebuilding neat plant border edges",
-        "Complete deep restoration of grounds"
+        "Non-scratch soft brush cleaning",
+        "Dust, pollen, and soot washing",
+        "Restoring electricity output efficiency",
+        "Safe worker roof cleaning methods"
       ]
     },
     {
       id: "gutter",
-      title: "Gutter Cleaning & Roof Care",
+      title: "Gutter Cleaning",
       desc: "Clearing leaves, twigs, dirt, and nests from roof gutters to ensure smooth flow and prevent water overflow and foundation damage.",
       image: palmgateGutter,
       whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special.",
@@ -149,22 +93,8 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       ]
     },
     {
-      id: "solar",
-      title: "Solar Panel Cleaning & Care",
-      desc: "Washing heavy dust, pollen, bird droppings, and soot off your house solar panels with non-scratch brushes to restore your energy efficiency.",
-      image: solar1,
-      whatsapp: "Hi Palmgate, I saw your Solar Panel Cleaning & Care slide and would like to get a quote to wash our solar panels.",
-      tag: "Solar Panel Care",
-      highlights: [
-        "Non-scratch soft brush cleaning",
-        "Dust, pollen, and soot washing",
-        "Restoring electricity output efficiency",
-        "Safe worker roof cleaning methods"
-      ]
-    },
-    {
       id: "cleanup",
-      title: "Post-Event Fast Spotless Clears",
+      title: "Post Event Cleanup",
       desc: "Professional cleaning of compounds, driveways, and lawns after private parties, weddings, or corporate events. We collect all rubbish and leave the venue spotless.",
       image: sweeping2,
       whatsapp: "Hi Palmgate, I'd like a quote for your Post Event Cleanup service for an upcoming gathering.",

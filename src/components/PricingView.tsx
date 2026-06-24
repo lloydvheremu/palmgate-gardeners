@@ -26,97 +26,22 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
     },
     {
       id: "lawn",
-      title: "Premium Turfing & Lawn Care",
+      title: "Yard Maintenance",
       icon: "grass",
-      price: "$3.50",
-      unit: "per square meter",
-      desc: "Laying professional instant turf like Kikuyu, Paspalum, or Couch grass. Sourced freshly, rolled out, watered, and fed.",
-      features: [
-        "Certified fresh grass grass rolls",
-        "Soil prep, clay compact aeration, and fine rolling",
-        "Mowing and trimming from $25 per visit",
-        "Organic compost/feed application included"
-      ],
-      whatsapp: "Hi Palmgate, I am looking to lay instant lawn. I saw your rate of $3.50 per square meter."
-    },
-    {
-      id: "pruning",
-      title: "Tree & Shrub Care / Hedge Sculpting",
-      icon: "content_cut",
       price: "$45",
       unit: "starting rate",
-      desc: "Neat precision trimming of perimeter hedges, decorative garden shrubs, and safe cutting of low tree limbs or dry branches.",
+      desc: "Scheduled property yard maintenance, lawn turfing, soil feeding, and comprehensive grounds upkeep.",
       features: [
-        "Precision box trimming of formal perimeter hedges",
-        "Removal of dry twigs, damaged stems, or light tree limbs",
-        "Shaping ornamental garden topiary/shrubs",
-        "Full collection and cleaning of cut twigs and leaves"
+        "Scheduled lawn mowing, edging, and professional turfing",
+        "Perimeter hedge sculpting and decorative shrub trimming",
+        "Weed and moss eradication from flowerbeds and paving",
+        "Raking dry thatch and leaf clearance for healthy soil"
       ],
-      whatsapp: "Hi Palmgate, I saw your starting rate of $45 for hedge sculpting and tree/shrub trimming services."
-    },
-    {
-      id: "cleaning",
-      title: "Deep Garden Clean-up & Waste Clears",
-      icon: "delete_sweep",
-      price: "$50",
-      unit: "starting rate",
-      desc: "Complete, thorough seasonal leaf sweeping, pavement joint weed removal, lawn raking, and disposal of green garden waste.",
-      features: [
-        "Clearing dry acacia leaves, pods, and garden debris",
-        "Removing stubborn weeds between brick paving and patios",
-        "Raking dry grass thatch to let roots breathe",
-        "Includes hauling and environment-safe disposal"
-      ],
-      whatsapp: "Hi Palmgate, I see your garden clean-up starting at $50. I'd like to schedule a lawn/driveway sweep."
-    },
-    {
-      id: "irrigation",
-      title: "Smart Garden Irrigation Systems",
-      icon: "potted_plant",
-      price: "$120",
-      unit: "starting rate",
-      desc: "Installation and repair of garden watering networks, drip line setups, automatic timers, and pressure sprinkler nozzles.",
-      features: [
-        "Installing simple low-drip lines in flowerbeds or borders",
-        "Automatic battery/WiFi timers to schedule watering",
-        "Fixing leaks, broken pipes, or clogged sprinklers",
-        "Tuning water spray directions to conserve municipal supply"
-      ],
-      whatsapp: "Hi Palmgate, I am interested in garden irrigation repair or setup starting at $120."
-    },
-    {
-      id: "lighting",
-      title: "Outdoor Lighting Systems",
-      icon: "wb_sunny",
-      price: "$90",
-      unit: "starting rate",
-      desc: "Layout of elegant, low-voltage outdoor LED landscape lights along pathways, spotlights for trees, and sensor night timers.",
-      features: [
-        "Warm LED pathway stake post and bollard lighting",
-        "Spotlight highlights on trees and key flowerbeds",
-        "Weatherproof heavy-duty outdoor-rated wiring",
-        "Simple automated dark twilight-to-dawn sensor switches"
-      ],
-      whatsapp: "Hi Palmgate, I would like to enquire about pathway or garden spotlight installations starting at $90."
-    },
-    {
-      id: "gutter",
-      title: "Gutter Clearance & Roof Care",
-      icon: "cleaning_services",
-      price: "$30",
-      unit: "per single roof level",
-      desc: "Clearing dried acacia pods, clay silt, leaves, and nests from roof gutters to prevent overflow and shield foundations.",
-      features: [
-        "Safe ladder climbing and gutter debris hand removal",
-        "Detail downspout water flushing to ensure clear flows",
-        "Clears nesting silt and organic sludge safely",
-        "Reviewing simple overflow issues around your compound"
-      ],
-      whatsapp: "Hi Palmgate, I want to book your gutter clearing special starting from $30."
+      whatsapp: "Hi Palmgate, I want a quote for professional Yard Maintenance starting from $45."
     },
     {
       id: "solar",
-      title: "Solar Panel Cleaning & Care",
+      title: "Solar Panel Cleaning",
       icon: "solar_power",
       price: "$2.00",
       unit: "per solar panel",
@@ -130,8 +55,23 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
       whatsapp: "Hi Palmgate, I want a quote to wash my solar panels at $2.00 per panel."
     },
     {
+      id: "gutter",
+      title: "Gutter Cleaning",
+      icon: "cleaning_services",
+      price: "$30",
+      unit: "per single roof level",
+      desc: "Clearing dried acacia pods, clay silt, leaves, and nests from roof gutters to prevent overflow and shield foundations.",
+      features: [
+        "Safe ladder climbing and gutter debris hand removal",
+        "Detail downspout water flushing to ensure clear flows",
+        "Clears nesting silt and organic sludge safely",
+        "Reviewing simple overflow issues around your compound"
+      ],
+      whatsapp: "Hi Palmgate, I want to book your gutter clearing special starting from $30."
+    },
+    {
       id: "cleanup",
-      title: "Post-Event Fast Spotless Clears",
+      title: "Post Event Cleanup",
       icon: "event_available",
       price: "$75",
       unit: "starting rate",
