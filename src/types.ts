@@ -1,4 +1,4 @@
-export type ActiveTab = 'home' | 'services' | 'gallery' | 'about' | 'contact';
+export type ActiveTab = 'home' | 'services' | 'gallery' | 'about' | 'contact' | 'pricing';
 
 export interface QuoteState {
   gardenSize: 'small' | 'medium' | 'large' | 'estate';

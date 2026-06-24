@@ -145,6 +145,13 @@ interface CollageSlot {
 
 export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
   const [selectedImage, setSelectedImage] = useState<typeof IMAGES[0] | null>(null);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Define initial slots that correspond to left, center-right, and far-right sections.
   // Each has its own layout bounds in the collage to look natural.
@@ -153,6 +160,24 @@ export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
     { id: 'slot-1', image: IMAGES[1], left: 38, top: 22, rotate: 5, scale: 1.02, key: 100 },
     { id: 'slot-2', image: IMAGES[3], left: 68, top: 8, rotate: -3, scale: 0.96, key: 200 },
   ]);
+
+  const getResponsiveSlots = () => {
+    if (windowWidth < 640) {
+      // Only 1 slot on small mobile - center nicely
+      const copy = { ...slots[0] };
+      // 185px wide is ~50% of typical 360px. left: 15% centers it nicely.
+      copy.left = windowWidth > 420 ? 20 : 12;
+      copy.top = 18;
+      return [copy];
+    }
+    if (windowWidth < 1024) {
+      // 2 slots on tablets - separate neatly without collision
+      const s0 = { ...slots[0], left: 8, top: 18 };
+      const s1 = { ...slots[1], left: 54, top: 22 };
+      return [s0, s1];
+    }
+    return slots;
+  };
 
   // Handle automatic swapping of image slots with smooth fade-in and random coordinates
   useEffect(() => {
@@ -262,7 +287,7 @@ export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px]"></div>
           
           <AnimatePresence mode="popLayout" initial={false}>
-            {slots.map((slot) => (
+            {getResponsiveSlots().map((slot) => (
               <motion.div
                 key={`${slot.id}-${slot.key}`}
                 initial={{ opacity: 0, scale: 0.8, y: 15 }}

@@ -39,141 +39,141 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
     {
       id: "landscaping",
       title: "Landscaping & Garden Design",
-      desc: "Bespoke yard planning, layout blueprints, curved flagstone walkways, and hand-selected ornamental flower beds designed for Zimbabwe's specific soils. We craft cohesive garden layouts from ground up.",
+      desc: "Beautiful outdoor designs that transform your space and increase your property value. We install flagstone paving paths, hand-laid decorative flower borders, and tailored garden layouts.",
       image: palmgateSoilPrep,
       whatsapp: "Hi Palmgate, I saw your Landscaping & Garden Design showcase and would like to talk about custom garden landscaping and flagstone walkway designs.",
-      tag: "Arbor Design",
+      tag: "Garden Design",
       highlights: [
-        "Symmetrical flagstone & border formatting",
-        "Expert computer-aided ground planning",
-        "Bespoke floral palette selections",
-        "Residential & commercial properties"
+        "Flagstone pathways and stone layouts",
+        "Custom garden borders and design",
+        "Select decorative flowers and shrubs",
+        "Tailored to commercial and home yards"
       ]
     },
     {
       id: "lawn",
       title: "Lawn Maintenance & Turfing",
-      desc: "Laying rich, vibrant Kikuyu, Paspalum, or Couch grass rolls. Our horticulturists manage deep sub-surface aeration to relieve soil compaction, apply nutrient top-feedings, and maintain premium lawn textures.",
+      desc: "Laying professional instant lawns like Kikuyu, Paspalum, or Couch grass. We provide regular mowing, trimming, and standard feeding to keep your grass healthy and green.",
       image: palmgateMowing,
       whatsapp: "Hi Palmgate, I noticed your Lawn Maintenance & Turfing slide and want to enquire about instant lawn turfing or lawn rehabilitation.",
-      tag: "Turf Science",
+      tag: "Yard Maintenance",
       highlights: [
-        "Certified instant lawn supply & rolling",
-        "Deep core aeration for compact red-clays",
-        "Scheduled maintenance with low-noise gear",
-        "Complete weed extraction & organic feeding"
+        "Instant lawn supply and laying",
+        "Standard lawn mowing and care",
+        "Weed clearing and lawn tidy-ups",
+        "Organic compost and lawn feed"
       ]
     },
     {
       id: "pruning",
       title: "Tree Pruning & Hedge Shaping",
-      desc: "Surgical, laser-straight geometric hedge sculpting and artistic shrub trimming. We thin dense crowns, remove hazardous deadwood, and manicure compound fences for maximum light.",
+      desc: "Regular trimming and neat shaping of perimeter hedges, shrubs, and trees. We prune overgrown branches and clear deadwood to keep your garden tidy, safe, and beautiful.",
       image: palmgatePruning,
       whatsapp: "Hi Palmgate, I saw your geometric hedge sculpting. I would like an estimate to trim my perimeter hedges.",
-      tag: "Sculpting Precision",
+      tag: "Hedge Shaping",
       highlights: [
-        "Laser-straight geometric perimeter hedges",
-        "Deadwood removal for optimal solar/light gain",
-        "Ornamental topiary and garden sculpting",
-        "Thorough organic branch clearing"
+        "Neat formal hedge and boundary shaping",
+        "Safe cutting of tree limbs and branches",
+        "Trimming decorative garden shrubs",
+        "Full clean-up of pruned foliage"
       ]
     },
     {
       id: "cleaning",
       title: "Garden Cleaning & Waste Removal",
-      desc: "Complete deep property sweeps. We dig out pavement joint weeds, rake dry autumn thatch layers, clear seasonal leaves, and process all organic waste directly into nutrient compost.",
+      desc: "Complete clearing of fallen autumn leaves, dry weeds, and grass clippings. We thoroughly sweep your driveways and lawns, leaving your compound spotless.",
       image: sweeping1,
       whatsapp: "Hi Palmgate, I want a quote for seasonal garden cleaning, leaf sweep, and pavement joint detail.",
-      tag: "Seasonal Refresh",
+      tag: "Compound Cleaning",
       highlights: [
-        "Meticulous pavement joint detailed sweeps",
-        "Dry turf thatch raking & clean sweeps",
-        "Full organic waste hauling & composing",
-        "Reliable scheduled periodic compound sweeps"
+        "Thorough leaf and garden debris sweep",
+        "Weed removal from driveways and paths",
+        "Compound sweeps and lawn raking",
+        "Rubbish hauling and proper disposal"
       ]
     },
     {
       id: "irrigation",
-      title: "Smart Irrigation Systems",
-      desc: "Custom water-wise micro-drip networks, pops-up sprinkler grids, and smart solar-compatible timers. We program water distribution loops that minimize municipal loss while maximizing grass depth.",
+      title: "Garden Irrigation Systems",
+      desc: "Installation and repair of garden watering networks and timers. We set up simple drip lines and sprinklers to water your lawns and flower beds efficiently.",
       image: palmgateWatering,
       whatsapp: "Hi Palmgate, I'd like a quote for a custom drip irrigation loop and automated watering timer.",
-      tag: "Irrigation Engineering",
+      tag: "Irrigation & Watering",
       highlights: [
-        "Custom, low-leakage drip lines",
-        "Smart multi-zone automated schedulers",
-        "Accurate water pressure spray tuning",
-        "System audits to minimize municipal waste"
+        "Drip irrigation and sprayer setup",
+        "Watering zone automatic timers",
+        "Fixing leaks and running repairs",
+        "Adjusting spray nozzles for coverage"
       ]
     },
     {
       id: "lighting",
       title: "Outdoor Lighting Systems",
-      desc: "Illuminate your garden pathing with low-voltage warm brass LED stake spotlights, crown accents, and focus fixtures that combine nighttime security with serene visual warmth.",
+      desc: "Laying low-voltage outdoor LED lights to illuminate your pathways, plants, and trees safely for nighttime beauty and security.",
       image: palmgateLighting,
       whatsapp: "Hi Palmgate, I saw your landscape lighting options and want to talk about adding low-voltage LED lights to our garden.",
-      tag: "Illumination Art",
+      tag: "Garden Lights",
       highlights: [
-        "Warm low-voltage energy-safe LED fixtures",
-        "Custom tree crown and path stakes highlighting",
-        "Automated twilight and sensor integration",
-        "Bespoke structural highlighting"
+        "Warm pathway post and stake lights",
+        "Spotlighting trees and shrubs",
+        "Simple automated night timers",
+        "Weatherproof outdoor cabling"
       ]
     },
     {
       id: "restoration",
-      title: "Hardscaping & Yard Restoration",
-      desc: "Reclaiming compacted clays and unkempt grounds. We structure high-density stone borders, level sloped yards, and install gravel containment areas to control heavy rainfall erosion.",
+      title: "Yard Cleanup & Restoration",
+      desc: "Reclaiming neglected, overgrown yards. We level uneven grounds, clean up messy layout borders, and refresh paths to restore tidy order to your garden.",
       image: sweeping2,
       whatsapp: "Hi Palmgate, my yard is heavily neglected and needs a full-scale hardscape restoration and design treatment.",
-      tag: "Horticulture Rehab",
+      tag: "Yard Makeover",
       highlights: [
-        "Thorough weed-purged gravel interfaces",
-        "Erosion-proof rain drainage planning",
-        "Durable stone joint bordering layouts",
-        "Complete property garden rebuilds"
+        "Clearing overgrown weeds and bush",
+        "Re-laying loose gravel and stones",
+        "Rebuilding neat plant border edges",
+        "Complete deep restoration of grounds"
       ]
     },
     {
       id: "gutter",
       title: "Gutter Cleaning & Roof Care",
-      desc: "Safely clearing autumn acacia pods, dry twigs, nest residues, and baked silt from your roof gutter slopes to prepare your home for clean rainwater harvesting catcher runs.",
+      desc: "Clearing leaves, twigs, dirt, and nests from roof gutters to ensure smooth flow and prevent water overflow and foundation damage.",
       image: palmgateGutter,
       whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special.",
-      tag: "Property Defense",
+      tag: "Gutter Clearance",
       highlights: [
-        "High-reach safety gear & ladder setups",
-        "Deep water flushing of gutter and runs",
-        "Rainwater harvesting prep support",
-        "Preventive building foundation safety checks"
+        "Safe ladder and clearing methods",
+        "Thorough downspout water flushing",
+        "Removing blockages and mud buildup",
+        "Preventing roof overflow damage"
       ]
     },
     {
       id: "solar",
       title: "Solar Panel Cleaning & Care",
-      desc: "In Zimbabwe, thick dust blocks clean solar rays, dropping electrical yield by up to 30%. We use telescopic scratch-free microfiber washing rods and mineral-free rinse water to restore your solar efficiency.",
+      desc: "Washing heavy dust, pollen, bird droppings, and soot off your house solar panels with non-scratch brushes to restore your energy efficiency.",
       image: solar1,
       whatsapp: "Hi Palmgate, I saw your Solar Panel Cleaning & Care slide and would like to get a quote to wash our solar panels.",
-      tag: "Solar Optimization",
+      tag: "Solar Panel Care",
       highlights: [
-        "Specialized scratch-free wash rods",
-        "Safe, low-pressure mineralless rinse",
-        "Restores up to 30% lost daylight yield",
-        "Complete roof & bracket safety audits"
+        "Non-scratch soft brush cleaning",
+        "Dust, pollen, and soot washing",
+        "Restoring electricity output efficiency",
+        "Safe worker roof cleaning methods"
       ]
     },
     {
       id: "cleanup",
       title: "Post-Event Fast Spotless Clears",
-      desc: "Fast, reliable lawn and property clears after private events, garden weddings, and corporate gatherings. Our uniformed staff removes all trash, sweeps pavement paths, and restores your tidy property.",
+      desc: "Professional cleaning of compounds, driveways, and lawns after private parties, weddings, or corporate events. We collect all rubbish and leave the venue spotless.",
       image: sweeping2,
       whatsapp: "Hi Palmgate, I'd like a quote for your Post Event Cleanup service for an upcoming gathering.",
-      tag: "Pristine Cleanup",
+      tag: "Event Cleanup",
       highlights: [
-        "Fast municipal & organic trash clearance",
-        "Driveway, lawn, & porch deep sweep reviews",
-        "Uniformed on-time trustworthy technicians",
-        "Restores pristine landscaped order"
+        "Rubbish, bottles, and trash collection",
+        "Thorough pavement and driveway sweeping",
+        "Professional, fast, on-time crew",
+        "Complete restoration of tidy outdoor order"
       ]
     }
   ];
@@ -258,7 +258,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       {/* Full-Screen Rotating Service Showcase Hero Section */}
       <section 
         id="hero-slideshow" 
-        className="relative h-[85vh] sm:h-[80vh] md:h-[88vh] lg:h-[90vh] flex items-center overflow-hidden rounded-3xl mx-4 my-6 bg-slate-950 shadow-2xl group/slideshow"
+        className="relative min-h-[645px] sm:min-h-[580px] md:h-[80vh] lg:h-[85vh] flex items-center overflow-hidden rounded-3xl mx-4 my-6 bg-slate-950 shadow-2xl group/slideshow"
         onMouseEnter={() => setIsPlaying(false)}
         onMouseLeave={() => setIsPlaying(true)}
         onTouchStart={handleTouchStart}
@@ -287,7 +287,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff04_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-10" />
 
         {/* Content Overlay - Constrained layout for static height & stability */}
-        <div className="relative z-20 w-full max-w-4xl h-full flex flex-col justify-end md:justify-center p-6 sm:p-12 md:p-16 lg:p-24">
+        <div className="relative z-20 w-full max-w-4xl h-full flex flex-col justify-center p-6 sm:p-12 md:p-16 lg:p-24 pb-16 sm:pb-12">
           <AnimatePresence mode="popLayout">
             <motion.div
               key={currentIndex}
@@ -320,8 +320,8 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
               {/* Highlighted bullets */}
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 max-w-2xl text-xs sm:text-sm text-slate-300 pt-2 font-sans">
                 {currentSlide.highlights.map((hl, k) => (
-                  <li key={k} className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-amber-400 text-[16px] flex-shrink-0 select-none">check_circle</span>
+                  <li key={k} className="flex items-start gap-2">
+                    <span className="material-symbols-outlined text-amber-400 text-[16px] flex-shrink-0 select-none pt-0.5">check_circle</span>
                     <span>{hl}</span>
                   </li>
                 ))}
@@ -384,31 +384,31 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       </section>
 
       {/* Expertise & Rooted in Passion Section */}
-      <section id="expertise-narrative" className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="text-amber-600 font-semibold tracking-wider uppercase text-sm block">Zimbabwe&apos;s Premium Gardeners</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
+      <section id="expertise-narrative" className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-10 sm:mb-16">
+          <span className="text-amber-600 font-bold tracking-wider uppercase text-xs sm:text-sm block">Zimbabwe&apos;s Premium Gardeners</span>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
             Expertise Rooted in Passion
           </h2>
           <div className="h-1 w-20 bg-amber-500 mx-auto rounded-full"></div>
-          <p className="text-slate-600 text-lg leading-relaxed pt-2">
+          <p className="text-slate-650 text-sm sm:text-base md:text-lg leading-relaxed pt-2">
             Since our humble establishment, <strong className="text-slate-900">Palmgate Gardeners</strong> has catered to the finest residential estates, institutional parks, and corporate lawns. We deliver science-backed lawn rehabilitation, custom soil feeding, and artisan landscape pruning.
           </p>
         </div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {values.map((val, idx) => (
             <div 
               key={idx} 
-              className="bg-white p-8 rounded-2xl border border-[#ecece6] hover:border-emerald-600/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01] flex flex-col justify-between"
+              className="bg-white p-6 sm:p-8 rounded-2xl border border-[#ecece6] hover:border-emerald-600/30 transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.01] flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center">
                   <span className="material-symbols-outlined text-[28px]">{val.icon}</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 font-serif">{val.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{val.desc}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-serif">{val.title}</h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{val.desc}</p>
               </div>
             </div>
           ))}
@@ -416,25 +416,32 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       </section>
 
       {/* Packages Preview Section */}
-      <section id="packages-preview" className="bg-gradient-to-b from-emerald-50/50 to-amber-50/20 py-20 px-6 rounded-3xl mx-4 border border-[#eeeede]">
-        <div className="max-w-7xl mx-auto space-y-16">
+      <section id="packages-preview" className="bg-gradient-to-b from-emerald-50/50 to-amber-50/20 py-12 sm:py-20 px-4 sm:px-8 md:px-10 rounded-2xl sm:rounded-3xl mx-3 sm:mx-4 border border-[#eeeede]">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-emerald-950/5">
             <div className="space-y-3 max-w-xl">
-              <span className="text-emerald-800 font-semibold tracking-widest uppercase text-xs">Standardized Clean Care Plans</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 leading-tight">
+              <span className="text-emerald-800 font-bold tracking-widest uppercase text-xs">Standardized Clean Care Plans</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-900 leading-tight">
                 Our Top Maintenance Packages
               </h2>
-              <p className="text-slate-600 text-sm">
+              <p className="text-slate-600 text-xs sm:text-sm">
                 Transparent flat rates for standard properties in Zimbabwe. All organic, fully-equipped, and strictly managed.
               </p>
             </div>
-            <div>
+            <div className="flex flex-col sm:flex-row gap-3">
               <button 
-                onClick={() => onNavigate('services')}
-                className="px-6 py-3 bg-[#1e3f20] hover:bg-[#132a15] text-white rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center gap-2 shadow-md cursor-pointer"
+                onClick={() => onNavigate('pricing')}
+                className="px-5 py-3 bg-[#1e3f20] hover:bg-[#132a15] text-white rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center gap-2 shadow-md cursor-pointer"
               >
-                <span className="material-symbols-outlined text-sm">calculate</span>
-                Calculate Custom Quote
+                <span className="material-symbols-outlined text-sm">payments</span>
+                See Service Start Prices
+              </button>
+              <button 
+                onClick={onOpenConsultation}
+                className="px-5 py-3 bg-white hover:bg-slate-50 text-[#1e3f20] border border-slate-200 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 flex items-center gap-2 shadow-sm cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-sm">spa</span>
+                Book Site Inspection
               </button>
             </div>
           </div>
@@ -574,10 +581,10 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       </section>
 
       {/* Mini CTA banner */}
-      <section id="footer-cta" className="mx-4 bg-gradient-to-r from-emerald-900 to-emerald-950 rounded-2xl p-12 text-center text-emerald-50 space-y-6 relative overflow-hidden">
+      <section id="footer-cta" className="mx-3 sm:mx-4 bg-gradient-to-r from-emerald-900 to-emerald-950 rounded-2xl p-6 sm:p-12 text-center text-emerald-50 space-y-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:12px_12px]"></div>
-        <h3 className="text-3xl font-serif font-bold text-white max-w-xl mx-auto">Have a space that needs a green professional touch?</h3>
-        <p className="text-emerald-100/70 text-sm max-w-lg mx-auto">
+        <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white max-w-xl mx-auto">Have a space that needs a green professional touch?</h3>
+        <p className="text-emerald-100/70 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
           Contact our horticulturists today for a complete landscaping, lawn repair, or irrigation tune-up. Estimates and site visits are fully free across Zimbabwe!
         </p>
         <div className="pt-2">
@@ -585,10 +592,10 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
             href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20get%20a%20free%20inspection%20for%20my%20garden."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-[#122615] font-semibold rounded-xl text-sm transition-all duration-300 shadow-md transform hover:scale-[1.02] cursor-pointer text-center"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-[#122615] font-bold rounded-xl text-xs sm:text-sm transition-all duration-300 shadow-md transform hover:scale-[1.02] cursor-pointer text-center"
           >
             <span className="material-symbols-outlined text-base">chat</span>
-            Contact us on WhatsApp for an inspection
+            Contact us on WhatsApp
           </a>
         </div>
       </section>

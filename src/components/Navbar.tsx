@@ -36,7 +36,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-150/80 shadow-sm px-6 py-4 transition-all" id="app-navbar">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-150/80 shadow-sm px-4 sm:px-6 py-3 sm:py-4 transition-all" id="app-navbar">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* LOGO AREA */}
@@ -148,26 +148,26 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
 
       {/* MOBILE DRAWER NAV */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl p-4 space-y-3 animate-fade-in z-50 max-h-[85vh] overflow-y-auto">
-          <span className="text-[10px] uppercase tracking-widest text-[#1e3f20] font-bold block pb-1 border-b border-slate-100">Browse Palmgate Gardeners</span>
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-xl p-4 sm:p-5 space-y-4 animate-fade-in z-50 max-h-[85vh] overflow-y-auto">
+          <span className="text-[10px] uppercase tracking-widest text-[#1e3f20] font-extrabold block pb-1.5 border-b border-slate-100">Browse Palmgate Gardeners</span>
           <div className="flex flex-col gap-1 text-left">
             {navItems.map((item) => {
               if (item.id === 'services') {
                 return (
-                  <div key={item.id} className="space-y-1">
+                  <div key={item.id} className="space-y-1.5">
                     <button
                       onClick={() => handleNavClick('services')}
-                      className={`w-full px-4 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all flex items-center justify-between cursor-pointer ${activeTab === 'services' ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
+                      className={`w-full px-4 py-3 rounded-xl text-xs font-bold tracking-wide transition-all flex items-center justify-between cursor-pointer ${activeTab === 'services' ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
                     >
                       <div className="flex items-center gap-3">
                         <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
                         {item.label}
                       </div>
-                      <span className="text-[10px] uppercase font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">9 Packages</span>
+                      <span className="text-[10px] uppercase font-bold text-slate-450 bg-slate-100 px-2 py-0.5 rounded-md">9 Packages</span>
                     </button>
                     
                     {/* Collapsible/Indented Mobile child services */}
-                    <div className="pl-6 pt-1 pb-2 grid gap-1 border-l-2 border-slate-100 ml-6">
+                    <div className="pl-6 pt-1 pb-1.5 grid gap-1 border-l-2 border-slate-100 ml-6">
                       {servicesChildren.map((child) => (
                         <button
                           key={child.id}
@@ -175,7 +175,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
                             onNavigate('services', child.id);
                             setMobileMenuOpen(false);
                           }}
-                          className="w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-500 hover:bg-slate-50 hover:text-[#1e3f20] text-left flex items-center gap-2 cursor-pointer transition-colors"
+                          className="w-full px-3 py-2.5 rounded-lg text-xs font-medium text-slate-500 hover:bg-slate-50 hover:text-[#1e3f20] text-left flex items-center gap-2 cursor-pointer transition-colors"
                         >
                           <span className="material-symbols-outlined text-teal-800 text-[16px]">{child.icon}</span>
                           <span>{child.label}</span>
@@ -189,7 +189,7 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`w-full px-4 py-3 rounded-xl text-xs font-semibold tracking-wide transition-all flex items-center gap-3 cursor-pointer ${activeTab === item.id ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
+                  className={`w-full px-4 py-3 rounded-xl text-xs font-bold tracking-wide transition-all flex items-center gap-3 cursor-pointer ${activeTab === item.id ? 'bg-[#1e3f20] text-emerald-50' : 'text-slate-600 hover:bg-slate-50'}`}
                 >
                   <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
                   {item.label}
@@ -197,13 +197,27 @@ export default function Navbar({ activeTab, onNavigate, onOpenConsultation }: Na
               );
             })}
           </div>
+
+          <div className="p-3 bg-gradient-to-br from-amber-50 to-emerald-50/40 rounded-2xl border border-amber-100/75 flex items-center justify-between gap-3 text-left">
+            <div className="space-y-0.5 block">
+              <span className="text-[8px] font-mono tracking-widest text-amber-850 font-bold uppercase block">Looking for Rates?</span>
+              <span className="text-[11px] font-bold text-slate-800 leading-tight block">All 9 Service Start Prices</span>
+            </div>
+            <button 
+              onClick={() => { onNavigate('pricing'); setMobileMenuOpen(false); }}
+              className="px-3.5 py-1.5 bg-[#1e3f20] hover:bg-[#122615] text-white text-[10px] font-bold tracking-wide rounded-md transition-colors"
+            >
+              See prices
+            </button>
+          </div>
+
           <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
             <a
               href="https://wa.me/263785366349?text=Hi%20Palmgate%20Gardeners%2C%20I%20would%20like%20to%20book%20a%20free%20site%20inspection%20visit."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-3 bg-[#1e3f20] text-white rounded-xl text-xs font-bold shadow-md cursor-pointer block"
+              className="w-full text-center py-3.5 bg-[#1e3f20] text-white rounded-xl text-xs font-bold shadow-md cursor-pointer block"
             >
               Book Free Site Inspection
             </a>

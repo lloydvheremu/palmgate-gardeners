@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { QuoteState } from '../types';
+import { QuoteState, ActiveTab } from '../types';
 
 interface ServicesViewProps {
   selectedServiceId: string | null;
   setSelectedServiceId: (id: string | null) => void;
   onOpenConsultation: () => void;
+  onNavigate?: (tab: ActiveTab, serviceId?: string) => void;
 }
 
-export default function ServicesView({ selectedServiceId, setSelectedServiceId, onOpenConsultation }: ServicesViewProps) {
+export default function ServicesView({ selectedServiceId, setSelectedServiceId, onOpenConsultation, onNavigate }: ServicesViewProps) {
   const [gardenSize, setGardenSize] = useState<'small' | 'medium' | 'large' | 'estate'>('medium');
   const [selectedServices, setSelectedServices] = useState<string[]>([
     'lawn-mowing',
@@ -94,14 +95,16 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "outdoor_garden",
       iconName: "filter_vintage",
       title: "Landscaping & Garden Design",
-      desc: "Transform your outdoor space with a layout tailored to local soils. Includes flagstone paving paths, hand-laid ornamental flower borders, and custom dry riverbed stone installations.",
-      highlight: "Custom Blueprints",
+      price: "$180",
+      priceUnit: "starting rate",
+      desc: "Beautiful outdoor designs that transform your space and increase your property value. We install flagstone paving paths, hand-laid decorative flower borders, and tailored garden layouts.",
+      highlight: "Custom Layouts",
       details: [
-        "Symmetrical flagstone pathway layout & structuring",
-        "Expert plant selections matching your soil hydration properties",
-        "Bespoke floral palette selections & garden ornamental beds",
-        "Full 3D/2D planning blueprints for premium estates & compounds",
-        "Professional flower border building with premium organic mulch"
+        "Flagstone pathways and stone layouts",
+        "Custom garden borders and plant positioning",
+        "Selection of beautiful decorative flowers and shrubs",
+        "Tailored layouts for homes, compounds, and estates",
+        "Flower border installations and quality mulching"
       ],
       whatsapp: "Hi Palmgate, I want a quote for Landscaping & Garden Design."
     },
@@ -110,13 +113,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "grass",
       iconName: "grass",
       title: "Premium Turfing & Lawn Care",
-      desc: "Laying professional instant lawns (Kikuyu, Paspalum, or Couch grass). Includes seasonal aerating, biological soil feeding, top-dressing turf feed, and smart spot weed treatments.",
-      highlight: "Organic Feed Included",
+      price: "$3.50",
+      priceUnit: "per square meter",
+      desc: "Laying professional instant lawns like Kikuyu, Paspalum, or Couch grass. We provide regular mowing, trimming, and standard feeding to keep your grass healthy and green.",
+      highlight: "Green Grass Care",
       details: [
-        "Certified organic certified instant lawn supply & roll-out",
-        "Deep core aeration to relieve compacted clay layers in Zimbabwe soils",
-        "Scheduled custom-height mowing with professional low-noise gear",
-        "Precision edges, weeding bed clearance, and biological turf feed solutions"
+        "Instant lawn supply and roll-out installation",
+        "Lawn aeration and soil compaction relief",
+        "Scheduled standard lawn mowing and edging",
+        "Weed clearing and organic lawn feed application"
       ],
       whatsapp: "Hi Palmgate, I noticed your Lawn Care package and want a lawn turfing/maintenance estimate."
     },
@@ -125,13 +130,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "content_cut",
       iconName: "content_cut",
       title: "Tree & Shrub Care / Hedge Sculpting",
-      desc: "Precision pruning and formal box hedge sculpting. Our expert horticulturists keep hedges tight, clear dead wood safely, and shape ornamental shrubs with flawless lines.",
-      highlight: "Pruning Up to 4m",
+      price: "$45",
+      priceUnit: "starting rate",
+      desc: "Regular trimming and neat shaping of perimeter hedges, shrubs, and trees. We prune overgrown branches and clear deadwood to keep your garden tidy, safe, and beautiful.",
+      highlight: "Trim & Shape",
       details: [
-        "Laser-straight formal box hedge and compound boundary cutting",
-        "Deadwood removal for safety, aesthetic value, and lighting gain",
-        "Ornamental shrub shaping, rose pruning, and seasonal canopy trims",
-        "Thorough organic branch hauling, shredding, and clearance"
+        "Form and box hedge trimming of perimeter hedges",
+        "Clearing dead stems and tree branches safely",
+        "Trimming and shaping of decorative garden shrubs",
+        "Thorough sweeping and removal of trimmed branches"
       ],
       whatsapp: "Hi Palmgate, I would like to get a quote to trim and sculpt our perimeter hedges."
     },
@@ -140,13 +147,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "delete_sweep",
       iconName: "delete_sweep",
       title: "Deep Garden Clean-up & Waste clears",
-      desc: "Seasonal leaves and debris clearance. We run comprehensive branch, weed, and leaf sweeps, mulching the organics. Includes safe, eco-certified branch and organic compost hauling.",
-      highlight: "Zero Waste Landfill",
+      price: "$50",
+      priceUnit: "starting rate",
+      desc: "Complete clearing of fallen autumn leaves, dry weeds, and grass clippings. We thoroughly sweep your driveways and lawns, leaving your compound spotless.",
+      highlight: "Pristine Yard",
       details: [
-        "Thorough pavement joint weed-purging and brick chemical detail cleaning",
-        "Raking dry grass thatch layers to ventilate root beds and lawn prep",
-        "Seasonal acacia leaf, twig, and general organic material compound sweeps",
-        "Eco-certified branches and organic green waste hauling and compost conversion"
+        "Thorough sweeping of pavements, driveways, and brick pathways",
+        "Digging out dry weeds from paved areas",
+        "Compound sweeps and raking dry lawn thatch leaves",
+        "Rubbish hauling and proper disposal of all green waste"
       ],
       whatsapp: "Hi Palmgate, I want a quote for seasonal garden/yard cleaning and deep cleanup."
     },
@@ -155,13 +164,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "ld_water",
       iconName: "potted_plant",
       title: "Smart Irrigation Systems",
-      desc: "Install weather-smart drip lines and automated controller boxes. We tune spray nozzles to maximize coverage while cutting water waste.",
-      highlight: "Water Saving Tech",
+      price: "$120",
+      priceUnit: "starting rate",
+      desc: "Installation and repair of garden watering networks and timers. We set up simple drip lines and sprinklers to water your lawns and flower beds efficiently.",
+      highlight: "Efficient Watering",
       details: [
-        "Custom, leak-proof micro-drip networks for hedges and borders",
-        "Automated controller systems and water zone timers (WiFi/Smart models)",
-        "Accurate nozzle pressure adjustments to minimize runoff and water wastage",
-        "Seasonal system audits, filter cleanups, and spray nozzle replacements"
+        "Installing simple, durable drip lines for hedges and beds",
+        "Setting up watering timers and automatic controllers",
+        "Adjusting spray nozzles for better coverage and less runoff",
+        "Repairing leaks, damaged piping, and cleaning clogged sprayers"
       ],
       whatsapp: "Hi Palmgate, I'd like a quote for putting in an automated custom drip irrigation system."
     },
@@ -170,13 +181,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "lightbulb",
       iconName: "wb_sunny",
       title: "Outdoor Lighting Systems",
-      desc: "Illuminate your garden pathing with low-voltage warm brass LED stake spotlights, crown accents, and focus fixtures that combine nighttime security with serene visual warmth.",
-      highlight: "Warm LED Accents",
+      price: "$90",
+      priceUnit: "starting rate",
+      desc: "Laying low-voltage outdoor LED lights to illuminate your pathways, plants, and trees safely for nighttime beauty and security.",
+      highlight: "Outdoor LED Setup",
       details: [
-        "Low-voltage garden pathways post/stake lighting setup",
-        "Beautiful tree canopy, focal shrub, and flowerbed spot spotlighting",
-        "Time-delayed twilight sensors and automated motion integration",
-        "Weatherproof heavy-duty brass/aluminum outdoor landscape wiring"
+        "Installing pathway post, bollard, and stake lighting",
+        "Spotlighting trees, focal shrubs, and flowerbeds",
+        "Setting up simple twilight-to-dawn night timers",
+        "Safe outdoor-rated weatherproof garden wiring"
       ],
       whatsapp: "Hi Palmgate, I'd like to get a custom low-voltage LED landscape lighting quote."
     },
@@ -185,13 +198,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "cleaning_bucket",
       iconName: "cleaning_services",
       title: "Gutter Clearance & Water Harvesting",
-      desc: "Complete clearing of dry seasonal leaves, dirt, and nests from roof gutters so your rainwater harvesting tank captures transparent, clean organic water.",
-      highlight: "Rain Preparedness",
+      price: "$30",
+      priceUnit: "per single roof level",
+      desc: "Clearing leaves, twigs, dirt, and nests from roof gutters to ensure smooth flow and prevent water overflow and foundation damage.",
+      highlight: "Gutter Clearance",
       details: [
-        "Certified operator high-reach ladder and harness clearing of all gutters",
-        "Full downspout wash-throughs to verify zero blockages or silt traps",
-        "Rainwater flow testing and harvesting mesh adapter verification",
-        "Foundation drainage reviews next to high-volume downspout outputs"
+        "Safe ladder and clearing methods for all gutters",
+        "Thorough downspout water flushing to remove dirt and sand",
+        "Clean-up of twigs, leaves, and blockages",
+        "Reviewing simple gutter flow to prevent foundations overflow"
       ],
       whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
     },
@@ -200,13 +215,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "solar_power",
       iconName: "solar_power",
       title: "Solar Panel Cleaning & Care",
-      desc: "Maximize solar efficiency under thick dust. We clean panels with scratch-free telescopic brushes, removing pollen, hard-water spots, and baked soot safely.",
-      highlight: "Daylight Boost 30%",
+      price: "$2.00",
+      priceUnit: "per solar panel",
+      desc: "Washing heavy dust, pollen, bird droppings, and soot off your house solar panels with non-scratch brushes to restore your energy efficiency.",
+      highlight: "Max Solar Output",
       details: [
-        "Telescopic water-fed scratch-resistant microfiber brushes",
-        "De-ionized pure spot-free water rinses with safe, low-pressure washes",
-        "Clears baked-on bird droppings, fireplace soot, and heavy iron-clay dust",
-        "Structural bracket and electrical safety inspection with photo updates"
+        "Washing panels with non-scratch soft microfiber brushes",
+        "Thorough cleaning with clean rinse water",
+        "Clearing bird droppings, dust layer, and soot",
+        "Ensuring panels are completely clean and dry"
       ],
       whatsapp: "Hi Palmgate, I want a quote to perform specialized solar panel washing on my house."
     },
@@ -215,13 +232,15 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       icon: "cleaning_bucket",
       iconName: "event_available",
       title: "Post-Event Fast Spotless Clears",
-      desc: "Rapid response house-clearing and garden sweeping after weddings, corporate parties, and private dinners. We leave your lawns and pavements spotless.",
-      highlight: "Pristine Ground",
+      price: "$75",
+      priceUnit: "starting rate",
+      desc: "Professional cleaning of compounds, driveways, and lawns after private parties, weddings, or corporate events. We collect all rubbish and leave the venue spotless.",
+      highlight: "Spotless Ground",
       details: [
-        "Immediate morning-after collection of glass, papers, and trash",
-        "Porch, lawn, and brick driveway sweep and power washing as needed",
-        "Uniformed respectful workforce deployed for fast turnaround",
-        "Waste disposal and site restoration under professional ecological standards"
+        "Fast collection of food containers, bottles, and papers",
+        "Thorough sweeping of driveways, lawns, and tiled areas",
+        "Prompt, on-time, and reliable cleanup team",
+        "Complete rubbish removal and property tidy-up"
       ],
       whatsapp: "Hi Palmgate, I saw your post-event cleanup and want a service quote for our upcoming gathering."
     }
@@ -233,16 +252,16 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
     <div className="space-y-24 pb-16 animate-fade-in" id="services-view">
       {currentService ? (
         /* Detailed View of a Specific Service */
-        <section className="max-w-4xl mx-auto px-6 pt-10">
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
           <button 
             onClick={() => setSelectedServiceId(null)}
-            className="inline-flex items-center gap-2 group text-slate-500 hover:text-emerald-800 font-semibold mb-8 transition-colors font-sans text-xs cursor-pointer"
+            className="inline-flex items-center gap-2 group text-slate-500 hover:text-emerald-800 font-semibold mb-6 sm:mb-8 transition-colors font-sans text-xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
             Back to All Services
           </button>
 
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-xl space-y-8 relative overflow-hidden">
+          <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-5 sm:p-8 md:p-12 shadow-lg sm:shadow-xl space-y-6 sm:space-y-8 relative overflow-hidden">
             {/* Soft decorative background circles */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -253,10 +272,16 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
                   <span className="material-symbols-outlined text-[36px]">{currentService.iconName || currentService.icon}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-100 rounded-lg">
-                    {currentService.highlight}
-                  </span>
-                  <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif mt-1">{currentService.title}</h1>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-amber-50 text-amber-800 border border-amber-100 rounded-lg">
+                      {currentService.highlight}
+                    </span>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 bg-emerald-50 text-emerald-800 border border-emerald-100 rounded-lg flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[12px] font-bold">payments</span>
+                      {currentService.price} / {currentService.priceUnit === "starting rate" ? "start" : currentService.priceUnit}
+                    </span>
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif mt-1.5">{currentService.title}</h1>
                 </div>
               </div>
             </div>
@@ -311,25 +336,25 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
       ) : (
         /* Original Grid View of Services */
         <>
-          <section className="text-center max-w-4xl mx-auto px-6 space-y-6 pt-10">
-            <span className="text-emerald-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100">Palmgate Gardeners Services Portfolio</span>
-            <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 font-serif leading-tight">
+          <section className="text-center max-w-4xl mx-auto px-4 sm:px-6 space-y-4 sm:space-y-6 pt-6 sm:pt-10">
+            <span className="text-emerald-800 font-bold uppercase tracking-wider text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-100">Palmgate Gardeners Services Portfolio</span>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-slate-900 font-serif leading-tight">
               Nurturing Nature, <br />
               <span className="italic font-normal text-emerald-800">One Plot at a Time</span>
             </h1>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               From residential backyards to wide institution green parks, our trained Zimbabwe field crews keep your soil vibrant, turf plush, and flowerbeds blooming beautifully.
             </p>
           </section>
 
           {/* Services grid */}
-          <section className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <section className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {servicesList.map((srv, idx) => (
                 <div 
                   key={idx} 
                   onClick={() => setSelectedServiceId(srv.id)}
-                  className="bg-white rounded-2xl border border-slate-200/80 p-8 flex flex-col justify-between hover:border-emerald-700/40 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
+                  className="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 flex flex-col justify-between hover:border-emerald-700/40 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
                 >
                   <div className="space-y-5">
                     <div className="flex justify-between items-start">
@@ -344,7 +369,13 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
                     <p className="text-slate-605 text-sm leading-relaxed font-light">{srv.desc}</p>
                   </div>
                   <div className="pt-6 border-t border-slate-100 mt-6 flex justify-between items-center text-xs">
-                    <span className="text-slate-400 font-medium">Available across Zimbabwe</span>
+                    <div className="flex flex-col text-left">
+                      <span className="text-[12px] font-extrabold text-slate-800 tracking-tight flex items-center gap-0.5">
+                        <span className="material-symbols-outlined text-[13px] text-emerald-800">payments</span>
+                        {srv.price} <span className="text-[9px] text-[#425044] font-normal font-sans">/ {srv.priceUnit === "starting rate" ? "start" : srv.priceUnit}</span>
+                      </span>
+                      <span className="text-[10px] text-slate-400 font-normal">Available across Zimbabwe</span>
+                    </div>
                     <button 
                       onClick={(e) => {
                         e.stopPropagation();

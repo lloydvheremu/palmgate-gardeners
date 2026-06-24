@@ -47,6 +47,11 @@ export default function Footer({ onNavigate, onOpenConsultation }: FooterProps) 
               </button>
             </li>
             <li>
+              <button onClick={() => onNavigate('pricing')} className="hover:text-[#fdc23a] text-emerald-400 font-semibold transition-colors text-left block">
+                💰 Flat-Rate Prices List
+              </button>
+            </li>
+            <li>
               <button onClick={() => onNavigate('gallery')} className="hover:text-white transition-colors cursor-pointer text-left block">
                 Gallery &amp; Transformations
               </button>

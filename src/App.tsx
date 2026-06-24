@@ -7,6 +7,7 @@ import ServicesView from './components/ServicesView';
 import GalleryView from './components/GalleryView';
 import AboutView from './components/AboutView';
 import ContactView from './components/ContactView';
+import PricingView from './components/PricingView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
@@ -69,6 +70,7 @@ export default function App() {
             selectedServiceId={selectedServiceId}
             setSelectedServiceId={setSelectedServiceId}
             onOpenConsultation={() => setIsConsultationModalOpen(true)} 
+            onNavigate={handleNavigate}
           />
         )}
         {activeTab === 'gallery' && (
@@ -78,6 +80,12 @@ export default function App() {
         )}
         {activeTab === 'about' && (
           <AboutView />
+        )}
+        {activeTab === 'pricing' && (
+          <PricingView 
+            onNavigate={handleNavigate}
+            onOpenConsultation={() => setIsConsultationModalOpen(true)}
+          />
         )}
         {/* {activeTab === 'contact' && (
           <ContactView />
