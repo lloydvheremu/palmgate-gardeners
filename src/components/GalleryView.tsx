@@ -303,7 +303,7 @@ export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
                 transition={{ duration: 0.75, ease: 'easeInOut' }}
                 style={{ position: 'absolute' }}
                 onClick={() => setSelectedImage(slot.image)}
-                className="w-[185px] sm:w-[240px] md:w-[275px] bg-white p-3 pr-3 pt-3 pb-5 sm:pb-7 rounded-lg shadow-[0_12px_28px_rgba(0,0,0,0.6)] cursor-pointer hover:z-30 hover:scale-105 active:scale-95 transition-transform duration-200 border border-slate-100"
+                className="w-[185px] sm:w-[240px] md:w-[275px] bg-white p-3 rounded-lg shadow-[0_12px_28px_rgba(0,0,0,0.6)] cursor-pointer hover:z-30 hover:scale-105 active:scale-95 transition-transform duration-200 border border-slate-100"
               >
                 {/* Simulated Tape at Top */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-6 bg-amber-400/25 backdrop-blur-xs border border-amber-300/30 rotate-2 block shadow-xs"></div>
@@ -316,17 +316,6 @@ export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover pointer-events-none"
                   />
-                  {/* Category Accent */}
-                  <div className="absolute top-2 left-2 bg-slate-900/75 backdrop-blur-xs border border-white/10 px-2 py-0.5 rounded text-[8px] sm:text-[9px] text-white font-semibold font-mono uppercase tracking-wider">
-                    {slot.image.category}
-                  </div>
-                </div>
-
-                {/* Hand-written look Title */}
-                <div className="pt-3.5 block select-none">
-                  <div className="text-slate-800 font-bold text-xs md:text-sm font-sans truncate tracking-tight text-center">
-                    {slot.image.title}
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -385,7 +374,7 @@ export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div 
@@ -394,61 +383,22 @@ export default function GalleryView({ onOpenConsultation }: GalleryViewProps) {
               exit={{ scale: 0.9, y: 15 }}
               transition={{ type: 'spring', damping: 25, stiffness: 350 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl overflow-hidden shadow-2xl max-w-lg lg:max-w-xl w-full flex flex-col max-h-[90vh]"
+              className="relative max-w-4xl max-h-[85vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
             >
-              {/* Image Frame */}
-              <div className="relative aspect-[4/5] sm:aspect-video w-full bg-slate-100">
-                <img 
-                  src={selectedImage.url} 
-                  alt={selectedImage.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover" 
-                />
-                
-                {/* Close Button */}
-                <button
-                  onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 w-9 h-9 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center border border-white/20 hover:scale-105 transition-transform duration-150 cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-base">close</span>
-                </button>
-
-                {/* Location Badge */}
-                <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-black/75 backdrop-blur-xs border border-white/10 text-white text-xs font-semibold rounded-lg shadow-md">
-                  <span className="material-symbols-outlined text-sm text-amber-400">location_on</span>
-                  {selectedImage.location}
-                </div>
-              </div>
-
-              {/* Text Container */}
-              <div className="p-6 md:p-8 space-y-4 flex-1 overflow-y-auto">
-                <div className="space-y-1 block text-left">
-                  <span className="text-[10px] uppercase tracking-widest text-[#1e3f20] font-extrabold font-mono block">
-                    {selectedImage.category}
-                  </span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 font-serif">
-                    {selectedImage.title}
-                  </h3>
-                </div>
-
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed text-left">
-                  {selectedImage.desc}
-                </p>
-
-                {/* Actions */}
-                <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <span className="text-xs text-slate-400 font-mono text-left">Palmgate Gardens Zimbabwe</span>
-                  <a 
-                    href={`https://wa.me/263785366349?text=${encodeURIComponent(selectedImage.whatsappText)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-6 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md hover:scale-[1.02] active:scale-95 transition-all"
-                  >
-                    <span className="material-symbols-outlined text-sm">chat</span>
-                    Inquire About This Service
-                  </a>
-                </div>
-              </div>
+              <img 
+                src={selectedImage.url} 
+                alt="Selected Snapshot"
+                referrerPolicy="no-referrer"
+                className="max-h-[80vh] w-auto object-contain mx-auto" 
+              />
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 w-10 h-10 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center border border-white/20 hover:scale-105 transition-transform duration-150 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-lg">close</span>
+              </button>
             </motion.div>
           </motion.div>
         )}

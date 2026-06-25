@@ -106,7 +106,7 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
         "Tailored layouts for homes, compounds, and estates",
         "Flower border installations and quality mulching"
       ],
-      whatsapp: "Hi Palmgate, I want a quote for Landscaping & Garden Design."
+      whatsapp: "Hi, Palmgate Gardeners, I want a quote for Landscaping & Garden Design."
     },
     {
       id: "lawn",
@@ -124,7 +124,7 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
         "Raking dry thatch and leaf clearance for healthy soil",
         "Organic compost application and lawn feeding"
       ],
-      whatsapp: "Hi Palmgate, I want a quote for professional Yard Maintenance."
+      whatsapp: "Hi, Palmgate Gardeners, I want a quote for professional Yard Maintenance."
     },
     {
       id: "solar",
@@ -141,7 +141,7 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
         "Clearing bird droppings, dust layer, and soot",
         "Ensuring panels are completely clean and dry"
       ],
-      whatsapp: "Hi Palmgate, I want a quote to perform specialized solar panel washing on my house."
+      whatsapp: "Hi, Palmgate Gardeners, I want a quote to perform specialized solar panel washing on my house."
     },
     {
       id: "gutter",
@@ -158,7 +158,7 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
         "Clean-up of twigs, leaves, and blockages",
         "Reviewing simple gutter flow to prevent foundations overflow"
       ],
-      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special."
+      whatsapp: "Hi, Palmgate Gardeners, I would like to book the gutter clearing and downspout wash special."
     },
     {
       id: "cleanup",
@@ -175,7 +175,7 @@ export default function ServicesView({ selectedServiceId, setSelectedServiceId, 
         "Prompt, on-time, and reliable cleanup team",
         "Complete rubbish removal and property tidy-up"
       ],
-      whatsapp: "Hi Palmgate, I saw your post-event cleanup and want a service quote for our upcoming gathering."
+      whatsapp: "Hi, Palmgate Gardeners, I saw your post-event cleanup and want a service quote for our upcoming gathering."
     }
   ];
 

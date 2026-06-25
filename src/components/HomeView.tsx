@@ -41,7 +41,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       title: "Landscaping & Garden Design",
       desc: "Beautiful outdoor designs that transform your space and increase your property value. We install flagstone paving paths, hand-laid decorative flower borders, and tailored garden layouts.",
       image: palmgateSoilPrep,
-      whatsapp: "Hi Palmgate, I saw your Landscaping & Garden Design showcase and would like to talk about custom garden landscaping and flagstone walkway designs.",
+      whatsapp: "Hi, Palmgate Gardeners, I saw your Landscaping & Garden Design showcase and would like to talk about custom garden landscaping and flagstone walkway designs.",
       tag: "Garden Design",
       highlights: [
         "Flagstone pathways and stone layouts",
@@ -55,7 +55,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       title: "Yard Maintenance",
       desc: "Scheduled property yard maintenance, lawn turfing, soil feeding, and comprehensive grounds upkeep. We keep your grass plush, hedges sculpted, and flowerbeds weed-free.",
       image: palmgateMowing,
-      whatsapp: "Hi Palmgate, I want a quote for professional Yard Maintenance.",
+      whatsapp: "Hi, Palmgate Gardeners, I want a quote for professional Yard Maintenance.",
       tag: "Yard Maintenance",
       highlights: [
         "Scheduled lawn mowing, edging, and turfing",
@@ -69,7 +69,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       title: "Solar Panel Cleaning",
       desc: "Washing heavy dust, pollen, bird droppings, and soot off your house solar panels with non-scratch brushes to restore your energy efficiency.",
       image: solar2,
-      whatsapp: "Hi Palmgate, I saw your Solar Panel Cleaning & Care slide and would like to get a quote to wash our solar panels.",
+      whatsapp: "Hi, Palmgate Gardeners, I saw your Solar Panel Cleaning & Care slide and would like to get a quote to wash our solar panels.",
       tag: "Solar Panel Care",
       highlights: [
         "Non-scratch soft brush cleaning",
@@ -83,7 +83,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       title: "Gutter Cleaning",
       desc: "Clearing leaves, twigs, dirt, and nests from roof gutters to ensure smooth flow and prevent water overflow and foundation damage.",
       image: palmgateGutter,
-      whatsapp: "Hi Palmgate, I would like to book the gutter clearing and downspout wash special.",
+      whatsapp: "Hi, Palmgate Gardeners, I would like to book the gutter clearing and downspout wash special.",
       tag: "Gutter Clearance",
       highlights: [
         "Safe ladder and clearing methods",
@@ -97,7 +97,7 @@ export default function HomeView({ onNavigate, onOpenConsultation }: HomeViewPro
       title: "Post Event Cleanup",
       desc: "Professional cleaning of compounds, driveways, and lawns after private parties, weddings, or corporate events. We collect all rubbish and leave the venue spotless.",
       image: sweeping2,
-      whatsapp: "Hi Palmgate, I'd like a quote for your Post Event Cleanup service for an upcoming gathering.",
+      whatsapp: "Hi, Palmgate Gardeners, I'd like a quote for your Post Event Cleanup service for an upcoming gathering.",
       tag: "Event Cleanup",
       highlights: [
         "Rubbish, bottles, and trash collection",

@@ -22,7 +22,7 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
         "Decorative rose/shrub positioning",
         "Includes ground levelling and initial topsoil prep"
       ],
-      whatsapp: "Hi Palmgate, I saw your $180 starting rate for Landscaping and would like a custom design quote."
+      whatsapp: "Hi, Palmgate Gardeners, I saw your $180 starting rate for Landscaping and would like a custom design quote."
     },
     {
       id: "lawn",
@@ -37,7 +37,7 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
         "Weed and moss eradication from flowerbeds and paving",
         "Raking dry thatch and leaf clearance for healthy soil"
       ],
-      whatsapp: "Hi Palmgate, I want a quote for professional Yard Maintenance starting from $45."
+      whatsapp: "Hi, Palmgate Gardeners, I want a quote for professional Yard Maintenance starting from $45."
     },
     {
       id: "solar",
@@ -52,7 +52,7 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
         "Restores premium sunlight capture and energy output",
         "Note: $20 minimum callout applies for small home arrays"
       ],
-      whatsapp: "Hi Palmgate, I want a quote to wash my solar panels at $2.00 per panel."
+      whatsapp: "Hi, Palmgate Gardeners, I want a quote to wash my solar panels at $2.00 per panel."
     },
     {
       id: "gutter",
@@ -67,7 +67,7 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
         "Clears nesting silt and organic sludge safely",
         "Reviewing simple overflow issues around your compound"
       ],
-      whatsapp: "Hi Palmgate, I want to book your gutter clearing special starting from $30."
+      whatsapp: "Hi, Palmgate Gardeners, I want to book your gutter clearing special starting from $30."
     },
     {
       id: "cleanup",
@@ -82,7 +82,7 @@ export default function PricingView({ onNavigate, onOpenConsultation }: PricingV
         "On-time, respectful, and fast-working local crew",
         "Restores your garden to pristine clean order"
       ],
-      whatsapp: "Hi Palmgate, I see your post-event cleanup starts at $75. I'd like an estimate for an upcoming gathering."
+      whatsapp: "Hi, Palmgate Gardeners, I see your post-event cleanup starts at $75. I'd like an estimate for an upcoming gathering."
     }
   ];
 
